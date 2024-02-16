@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tractor Modelo X",
+    "descripcion": "Descripción detallada del tractor modelo X.",
+    "categoria": "Tractores",
+    "precio": 75000,
+    "numeroDeVentas": 0,
+    "cantidadDeStock": 5,
+    "imagenes": ["imagen1.jpg", "imagen2.jpg"]
+  },
+  {
+    "id": 2,
+    "nombre": "Cosechadora Modelo Y",
+    "descripcion": "Descripción detallada de la cosechadora modelo Y.",
+    "categoria": "Cosechadoras",
+    "precio": 120000,
+    "numeroDeVentas": 0,
+    "cantidadDeStock": 3,
+    "imagenes": ["imagen3.jpg", "imagen4.jpg"]
+  }
+]
