@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "nombre": "Tractor Modelo X",
-    "descripcion": "Descripción detallada del tractor modelo X.",
-    "categoria": "Tractores",
-    "precio": 75000,
+    "nombre": "Funda X",
+    "descripcion": "Descripción detallada de la funda X.",
+    "categoria": "Iphone 13",
+    "precio": 25,
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "imagenes": ["imagen1.jpg", "imagen2.jpg"]
   },
   {
     "id": 2,
-    "nombre": "Cosechadora Modelo Y",
-    "descripcion": "Descripción detallada de la cosechadora modelo Y.",
-    "categoria": "Cosechadoras",
-    "precio": 120000,
+    "nombre": "Funda Y",
+    "descripcion": "Descripción detallada de la funda Y.",
+    "categoria": "Iphone 15",
+    "precio": 30,
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "imagenes": ["imagen3.jpg", "imagen4.jpg"]
