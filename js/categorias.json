@@ -1,13 +1,11 @@
 [
     {
       "id": 1,
-      "nombre": "Electrónica",
-      "descripcion": "Productos electrónicos y accesorios."
+      "nombre": "Fundas para iPhone"
     },
     {
       "id": 2,
-      "nombre": "Ropa",
-      "descripcion": "Prendas de vestir para hombre y mujer."
+      "nombre": "Protectores de pantalla"
     }
   ]
   
