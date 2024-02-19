@@ -1,13 +1,39 @@
 [
     {
       "id": 1,
-      "recomendados":"true",
-      "nombre": "Fundas Crocopple"
+      "recomendados":true,
+      "nombre": "Crocopple",
+      "descripcion":"Las fundas con el Cocodrilo más simpático",
+      "imagenes":[
+        "img/crocopple.jpg"
+      ]
     },
     {
       "id": 2,
-      "recomendados":"true",
-      "nombre": "Protectores de pantalla"
+      "recomendados":true,
+      "nombre": "Tie-dye",
+      "descripcion":"Elige lo rompedor por encima de lo común",
+      "imagenes":[
+        "img/tiedye.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "recomendados":true,
+      "nombre": "Clean",
+      "descripcion":"A veces es mejor tirar por lo clásico",
+      "imagenes":[
+        "img/clean.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "recomendados":false,
+      "nombre": "Solid",
+      "descripcion":"Guarda a tus mejores amigos como se merecen",
+      "imagenes":[
+        "img/logo.png"
+      ]
     }
   ]
   

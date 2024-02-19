@@ -1,3 +1,31 @@
 .recomendados{
-    background-color: black;
+    color: black;
+}
+/* Estilo para las cartas dentro de los carousel items */
+.card {
+    height: 100%; /* Establecer una altura fija para las cartas */
+    width: 20rem;
+}
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+@media (width <=1200px) {
+    .card {
+        height: 100%; /* Establecer una altura fija para las cartas */
+        width: 11rem;
+    }
+}
+@media (width <=600px) {
+    .card {
+        height: 100%; /* Establecer una altura fija para las cartas */
+        width:8rem;
+    }
+}
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: rgb(243, 243, 243);
 }
