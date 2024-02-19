@@ -1,22 +1,27 @@
 [
   {
     "id": 1,
-    "nombre": "Funda X",
+    "nombre": "Funda Crocopple",
     "descripcion": "Descripción detallada de la funda X.",
-    "categoria": "Iphone 13",
+    "idCategoria": "1",
+    "modelo": "Iphone 15",
     "precio": 25,
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
+    "likes":150,
     "imagenes": ["imagen1.jpg", "imagen2.jpg"]
   },
   {
     "id": 2,
-    "nombre": "Funda Y",
+    "nombre": "Cristal Templado 9H",
     "descripcion": "Descripción detallada de la funda Y.",
-    "categoria": "Iphone 15",
-    "precio": 30,
+    "idCategoria": "2",
+    "modelo": "Iphone 13",
+    "precio": 10,
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
+    "recomendados":"false",
+    "likes":150,
     "imagenes": ["imagen3.jpg", "imagen4.jpg"]
   }
 ]
