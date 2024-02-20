@@ -30,9 +30,9 @@
       "id": 4,
       "recomendados":false,
       "nombre": "Solid",
-      "descripcion":"Guarda a tus mejores amigos como se merecen",
+      "descripcion":"Clásico pero no del todo, ya sabes elegancia",
       "imagenes":[
-        "img/logo.png"
+        "img/solido.jpg"
       ]
     },
     {
@@ -42,6 +42,33 @@
       "descripcion":"Qué mejor que las cosas a tu gusto, tu lo decides.",
       "imagenes":[
         "img/custom.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "recomendados":true,
+      "nombre": "CaseOutfit",
+      "descripcion":"Combina tu ropa con tu funda",
+      "imagenes":[
+        "img/outfit.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "recomendados":true,
+      "nombre": "Originals",
+      "descripcion":"Estilo simple, made by Apple",
+      "imagenes":[
+        "img/original.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "recomendados":true,
+      "nombre": "Cuero",
+      "descripcion":"cuero molon",
+      "imagenes":[
+        "img/leather.jpg"
       ]
     }
   ]

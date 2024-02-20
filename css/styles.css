@@ -31,13 +31,29 @@ nav{
         height: 100%; /* Establecer una altura fija para las cartas */
         width: 11rem;
     }
-}
-@media (width <=600px) {
-    .card {
-        height: 100%; /* Establecer una altura fija para las cartas */
-        width:8rem;
+    .carousel-item .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-item .row .col {
+        margin: 0 0.5rem;
     }
 }
+
+
+/* Media query para pantallas pequeñas y extra pequeñas */
+@media (max-width: 650px) {
+    /* Definir el estilo para el carrusel cuando el tamaño de la pantalla es pequeño o extra pequeño */
+    .carousel-item .row {
+        display: block;
+    }
+
+    .carousel-item .row .col {
+        margin: 0 auto;
+    }
+}
+
 
 .match{
     display: grid;
@@ -99,3 +115,21 @@ nav{
     color: antiquewhite;
     font-weight: bolder;
 }
+/* Definir el estilo para las tarjetas dentro del carrusel */
+.card {
+    border: none;
+    margin-top: 1rem;
+}
+
+.card-body {
+    text-align: center;
+}
+
+/* Definir el estilo para las imágenes dentro de las tarjetas */
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+
+

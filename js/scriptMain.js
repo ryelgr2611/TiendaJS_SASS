@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Si es la primera categoría en el item, agregar la estructura de flex y fila
                 currentCarouselItem.innerHTML += `
                     <div class="d-flex justify-content-center mb-5">
-                        <div class="row gap-4">
+                        <div class="row gap-1">
                             ${generarContenidoCategoria(categoria)}
                 `;
             } else {
