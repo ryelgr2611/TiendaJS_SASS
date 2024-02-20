@@ -34,6 +34,15 @@
       "imagenes":[
         "img/logo.png"
       ]
+    },
+    {
+      "id": 5,
+      "recomendados":true,
+      "nombre": "Custom",
+      "descripcion":"Qué mejor que las cosas a tu gusto, tu lo decides.",
+      "imagenes":[
+        "img/custom.jpg"
+      ]
     }
   ]
   

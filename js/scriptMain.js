@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Si es la primera categoría en el item, agregar la estructura de flex y fila
                 currentCarouselItem.innerHTML += `
                     <div class="d-flex justify-content-center mb-5">
-                        <div class="row">
+                        <div class="row gap-4">
                             ${generarContenidoCategoria(categoria)}
                 `;
             } else {
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 `;
             }
+            
         });
     })
     .catch(error => console.error('Error al obtener los datos:', error));
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para generar el contenido de la tarjeta de la categoría
     function generarContenidoCategoria(categoria) {
         return `
-            <div class="col-4 mt-4 ">
+            <div class="col mt-4 ">
                 <div class="card border-0 shadow-sm ">
                     <div class="card-body text-center ">
                         <h5 class="card-title">${categoria.nombre}</h5>

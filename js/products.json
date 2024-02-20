@@ -2,26 +2,49 @@
   {
     "id": 1,
     "nombre": "Funda Crocopple",
-    "descripcion": "Descripción detallada de la funda X.",
-    "idCategoria": "1",
-    "modelo": "Iphone 15",
+    "descripcion": "Funda con el Cocodrilo más simpático. Protege tu iPhone 15 con estilo.",
+    "idCategoria": 1,
+    "modelo": "iPhone 15",
     "precio": 25,
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
-    "likes":150,
-    "imagenes": ["imagen1.jpg", "imagen2.jpg"]
+    "likes": 150,
+    "imagenes": ["img/crocopple.jpg"]
   },
   {
     "id": 2,
-    "nombre": "Cristal Templado 9H",
-    "descripcion": "Descripción detallada de la funda Y.",
-    "idCategoria": "2",
-    "modelo": "Iphone 13",
-    "precio": 10,
+    "nombre": "Funda Crocopple",
+    "descripcion": "Funda con el Cocodrilo más simpático. Protege tu iPhone 12 Pro Max con estilo.",
+    "idCategoria": 1,
+    "modelo": "iPhone 12 Pro Max",
+    "precio": 25,
     "numeroDeVentas": 0,
-    "cantidadDeStock": 3,
-    "recomendados":"false",
-    "likes":150,
-    "imagenes": ["imagen3.jpg", "imagen4.jpg"]
+    "cantidadDeStock": 5,
+    "likes": 150,
+    "imagenes": ["img/crocopple.jpg"]
+  },
+  {
+    "id": 3,
+    "nombre": "Funda Tie-dye",
+    "descripcion": "Elige lo rompedor por encima de lo común. Perfecta para tu iPhone 11.",
+    "idCategoria": 2,
+    "modelo": "iPhone 11",
+    "precio": 25,
+    "numeroDeVentas": 0,
+    "cantidadDeStock": 5,
+    "likes": 0,
+    "imagenes": ["img/tiedye.jpg"]
+  },
+  {
+    "id": 4,
+    "nombre": "Funda Tie-dye",
+    "descripcion": "Elige lo rompedor por encima de lo común. Perfecta para tu iPhone SE (2020).",
+    "idCategoria": 2,
+    "modelo": "iPhone SE (2020)",
+    "precio": 25,
+    "numeroDeVentas": 0,
+    "cantidadDeStock": 5,
+    "likes": 0,
+    "imagenes": ["img/tiedye.jpg"]
   }
 ]
