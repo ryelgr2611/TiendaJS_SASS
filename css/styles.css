@@ -17,7 +17,14 @@ nav{
 .card {
     height: 100%; /* Establecer una altura fija para las cartas */
     width: 20rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+    .card p {
+        font-weight: bold;
+    }
+    .card h5 {
+        font-style: italic;
+    }
 
 .carousel-control-prev-icon {
  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
@@ -26,6 +33,7 @@ nav{
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
+
 @media (width <=1200px) {
     .card {
         height: 100%; /* Establecer una altura fija para las cartas */
@@ -115,10 +123,11 @@ nav{
     color: antiquewhite;
     font-weight: bolder;
 }
-/* Definir el estilo para las tarjetas dentro del carrusel */
-.card {
-    border: none;
-    margin-top: 1rem;
+.card:hover {
+    transform: translateY(-5px); /* Mover la carta hacia arriba */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+    font-weight: bold;
+    color: #20883f;
 }
 
 .card-body {
@@ -131,5 +140,22 @@ nav{
     height: auto;
 }
 
+.cartaRec a{
+    text-decoration: none;
+    color: black;
+}
 
+.cartaRec a:hover{
+    font-weight: bold;
+    color: #20883f;
+}
 
+.footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover{
+    font-weight: bold;
+    color: #20883f;
+}

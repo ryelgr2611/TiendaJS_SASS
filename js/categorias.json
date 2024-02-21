@@ -1,75 +1,152 @@
 [
     {
-      "id": 1,
-      "recomendados":true,
+      "id": "crocopple",
       "nombre": "Crocopple",
-      "descripcion":"Las fundas con el Cocodrilo más simpático",
-      "imagenes":[
-        "img/crocopple.jpg"
-      ]
+      "descripcion": "Las fundas con el Cocodrilo más simpático",
+      "imagenes": [
+        "img/categorias/crocopple.jpg",
+        "img/logo.png"
+      ],
+      "recomendados": true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Crocopple con tu cocodrilo favorito!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y muestra tu estilo con tu personaje favorito.",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con Crocopple."
+        ],
+        "nota": "¡Esta colección exclusiva está disponible solo en algunos países europeos! Si estás fuera de la Unión Europea, ¡explora otros increíbles productos de CrocoShield!"
+      }
     },
     {
-      "id": 2,
-      "recomendados":true,
+      "id": "tiedye",
       "nombre": "Tie-dye",
       "descripcion":"Elige lo rompedor por encima de lo común",
       "imagenes":[
-        "img/tiedye.jpg"
-      ]
+        "img/categorias/tiedye.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Tie-dye!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y muestra tu estilo de forma rompedoras.",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con el estilo Tie-dye."
+        ],
+        "nota": "¡Esta colección exclusiva está disponible solo en algunos países europeos! Si estás fuera de la Unión Europea, ¡explora otros increíbles productos de CrocoShield!"
+      }
     },
     {
-      "id": 3,
-      "recomendados":true,
+      "id": "clean",
       "nombre": "Clean",
       "descripcion":"A veces es mejor tirar por lo clásico",
       "imagenes":[
-        "img/clean.jpg"
-      ]
+        "img/categorias/clean.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Clean!",
+          "Protege tu dispositivo con nuestras fundas superresistentes."
+        ],
+        "nota": "¡Esta colección exclusiva está disponible solo en algunos países europeos! Si estás fuera de la Unión Europea, ¡explora otros increíbles productos de CrocoShield!"
+      }
     },
     {
-      "id": 4,
-      "recomendados":false,
+      "id": "solid",
       "nombre": "Solid",
       "descripcion":"Clásico pero no del todo, ya sabes elegancia",
       "imagenes":[
-        "img/solido.jpg"
-      ]
+        "img/categorias/solido.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Solid",
+          "Protege tu dispositivo con nuestras fundas superresistentes y muestra tu estilo clásico.",
+          "Elige entre una amplia variedad de colores y crea tu propia magia con Crocopple."
+        ],
+        "nota": "¡Esta colección exclusiva está disponible solo en algunos países europeos! Si estás fuera de la Unión Europea, ¡explora otros increíbles productos de CrocoShield!"
+      }
     },
     {
-      "id": 5,
-      "recomendados":true,
+      "id": "custom",
       "nombre": "Custom",
       "descripcion":"Qué mejor que las cosas a tu gusto, tu lo decides.",
       "imagenes":[
-        "img/custom.jpg"
-      ]
+        "img/categorias/custom.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Crea tu diseño único, y personalizado completamente a tu gusto!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y enséñale al mundo esos diseños que tienes en mente."
+        ]
+      }
     },
     {
-      "id": 6,
-      "recomendados":true,
+      "id": "caseOutfit",
       "nombre": "CaseOutfit",
       "descripcion":"Combina tu ropa con tu funda",
       "imagenes":[
-        "img/outfit.jpg"
-      ]
+        "img/categorias/outfit.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas CaseOutfit!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y muestra lo bien que combinas tu estilo con tú móvil.",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con CaseOutfit."
+        ],
+        "nota": "¡Esta colección exclusiva está disponible solo en algunos países europeos! Si estás fuera de la Unión Europea, ¡explora otros increíbles productos de CrocoShield!"
+      }
     },
     {
-      "id": 7,
-      "recomendados":true,
+      "id": "original",
       "nombre": "Originals",
       "descripcion":"Estilo simple, made by Apple",
       "imagenes":[
-        "img/original.jpg"
-      ]
+        "img/categorias/original.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Apple!",
+          "Protege tu dispositivo con las fundas de la manzanita",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con Apple."
+        ]
+        
+      }
     },
     {
-      "id": 8,
-      "recomendados":true,
+      "id": "leather",
       "nombre": "Cuero",
       "descripcion":"cuero molon",
       "imagenes":[
-        "img/leather.jpg"
-      ]
+        "img/categorias/leather.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Leather, las más elegantes!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y demuéstrale a los demás tu elegancia.",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con Leather."
+        ]
+      }
+    },
+    {
+      "id": "ecoF",
+      "nombre": "Eco-Friendly",
+      "descripcion":"Por un medioambiente mejor",
+      "imagenes":[
+        "img/categorias/eco.jpg"
+      ],
+      "recomendados":true,
+      "contenido": {
+        "parrafos": [
+          "¡Descubre la colección oficial de fundas Eco-Friendly!",
+          "Protege tu dispositivo con nuestras fundas superresistentes y ten la conciencia tranquila de estar aportando tu granito de arena",
+          "Elige entre una amplia variedad de diseños y crea tu propia magia con Eco-Friendly."
+        ]        
+      }
     }
   ]
   
