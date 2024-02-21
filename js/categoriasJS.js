@@ -16,9 +16,9 @@ console.log(idTipo);
                 contenido +=     `
                 <div class="row flex justify-content-center">
                                 <div class="col-12">
-                                    <div class="coleccion flex justify-content-center">
-                                        <div class="imagen text-center">
-                                            <img src="${categoria.imagenes[1]}"class="img-fluid border border-0 rounded-circle">
+                                    <div class="coleccion flex justify-content-center mt-5">
+                                        <div class="imagen text-center mb-5 ">
+                                            <img src="${categoria.imagenes[1]}"class="img-fluid border border-0">
                                         </div>
                                         <div class="row text-center">
                                             <h1 class="title text-danger">${categoria.nombre}</h1>

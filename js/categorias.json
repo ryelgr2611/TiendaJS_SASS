@@ -5,7 +5,7 @@
       "descripcion": "Las fundas con el Cocodrilo más simpático",
       "imagenes": [
         "img/categorias/crocopple.jpg",
-        "img/logo.png"
+        "img/logos/logo.png"
       ],
       "recomendados": true,
       "contenido": {
@@ -22,7 +22,8 @@
       "nombre": "Tie-dye",
       "descripcion":"Elige lo rompedor por encima de lo común",
       "imagenes":[
-        "img/categorias/tiedye.jpg"
+        "img/categorias/tiedye.jpg",
+        "img/logos/logoTiedye.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -39,7 +40,8 @@
       "nombre": "Clean",
       "descripcion":"A veces es mejor tirar por lo clásico",
       "imagenes":[
-        "img/categorias/clean.jpg"
+        "img/categorias/clean.jpg",
+        "img/logos/logoClean.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -55,7 +57,8 @@
       "nombre": "Solid",
       "descripcion":"Clásico pero no del todo, ya sabes elegancia",
       "imagenes":[
-        "img/categorias/solido.jpg"
+        "img/categorias/solido.jpg",
+        "img/logos/logoSolid.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -72,7 +75,8 @@
       "nombre": "Custom",
       "descripcion":"Qué mejor que las cosas a tu gusto, tu lo decides.",
       "imagenes":[
-        "img/categorias/custom.jpg"
+        "img/categorias/custom.jpg",
+        "img/logos/logoCustom.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -87,7 +91,8 @@
       "nombre": "CaseOutfit",
       "descripcion":"Combina tu ropa con tu funda",
       "imagenes":[
-        "img/categorias/outfit.jpg"
+        "img/categorias/outfit.jpg",
+        "img/logos/logoOutfit.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -104,7 +109,8 @@
       "nombre": "Originals",
       "descripcion":"Estilo simple, made by Apple",
       "imagenes":[
-        "img/categorias/original.jpg"
+        "img/categorias/original.jpg",
+        "img/logos/logoOriginal.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -121,7 +127,8 @@
       "nombre": "Cuero",
       "descripcion":"cuero molon",
       "imagenes":[
-        "img/categorias/leather.jpg"
+        "img/categorias/leather.jpg",
+        "img/logos/logoLeather.png"
       ],
       "recomendados":true,
       "contenido": {
@@ -137,7 +144,8 @@
       "nombre": "Eco-Friendly",
       "descripcion":"Por un medioambiente mejor",
       "imagenes":[
-        "img/categorias/eco.jpg"
+        "img/categorias/eco.jpg",
+        "img/logos/logoEco.png"
       ],
       "recomendados":true,
       "contenido": {
