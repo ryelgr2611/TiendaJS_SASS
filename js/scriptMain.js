@@ -59,6 +59,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 control.classList.add('d-none');
             });
         }
+        let recomendados=document.getElementById('recomendados');
+        if (categoriasRecomendadas.length ===0) {
+                recomendados.classList.add('d-none');
+        }
     })
     .catch(error => console.error('Error al obtener los datos:', error));
 
