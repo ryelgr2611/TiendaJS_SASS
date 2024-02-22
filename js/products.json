@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nombre": "Funda Crocopple",
+    "nombre": "Funda Crocopple iPhone15 ",
     "descripcion": "Funda con el Cocodrilo más simpático. Protege tu iPhone 15 con estilo.",
     "idCategoria": "crocopple",
     "modelo": "iPhone 15",
@@ -10,12 +10,12 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/crocopple.jpg"
+      "img/productos/iphone15crocopple.png"
     ]
   },
   {
     "id": 2,
-    "nombre": "Funda Crocopple XL",
+    "nombre": "Funda Crocopple iPhone13",
     "descripcion": "Funda Crocopple en tamaño XL para tu iPhone 15 Plus. Dale un toque único a tu dispositivo.",
     "idCategoria": "crocopple",
     "modelo": "iPhone 13",
@@ -23,11 +23,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 120,
-    "imagenes": ["img/crocopple_xl.jpg"]
+    "imagenes": [
+      "img/productos/iphone13crocopple.png"
+    ]
   },
   {
     "id": 3,
-    "nombre": "Funda Crocopple Mini",
+    "nombre": "Funda Crocopple SE",
     "descripcion": "Funda Crocopple en versión Mini para tu iPhone SE. Protección con estilo en tamaño compacto.",
     "idCategoria": "crocopple",
     "modelo": "iPhone SE",
@@ -35,11 +37,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 100,
-    "imagenes": ["img/crocopple_mini.jpg"]
+    "imagenes": [
+      "img/productos/iphoneSEcrocopple.png"
+    ]
   },
   {
     "id": 4,
-    "nombre": "Funda Tie-dye",
+    "nombre": "Funda Tie-dye iPhone13",
     "descripcion": "Elige lo rompedor por encima de lo común. Dale a tu iPhone 15 con estilo único con esta funda Tie-dye.",
     "idCategoria": "tiedye",
     "modelo": "iPhone 13",
@@ -47,11 +51,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/tiedye.jpg"]
+    "imagenes": [
+      "img/productos/iphone13Tie.png"
+    ]
   },
   {
     "id": 5,
-    "nombre": "Funda Tie-dye Pro",
+    "nombre": "Funda Tie-dye iPhone 15 Pro",
     "descripcion": "Funda Tie-dye en versión Pro para tu iPhone 15 Pro. Añade un toque de color y estilo.",
     "idCategoria": "tiedye",
     "modelo": "iPhone 15 Pro",
@@ -59,11 +65,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 180,
-    "imagenes": ["img/tiedye_pro.jpg"]
+    "imagenes": [
+      "img/productos/iphone15ProTie.png"
+    ]
   },
   {
     "id": 6,
-    "nombre": "Funda Tie-dye Mini",
+    "nombre": "Funda Tie-dye iPhone 12 Mini",
     "descripcion": "Funda Tie-dye en versión Mini para tu iPhone 12 Mini. Estilo compacto y llamativo.",
     "idCategoria": "tiedye",
     "modelo": "iPhone 12 Mini",
@@ -71,11 +79,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 6,
     "likes": 130,
-    "imagenes": ["img/tiedye_mini.jpg"]
+    "imagenes": [
+      "img/productos/iphone12MiniTie.png"
+    ]
   },
   {
     "id": 7,
-    "nombre": "Funda Clean",
+    "nombre": "Funda Clean iPhone 15",
     "descripcion": "Mantén la elegancia con la Funda Clean para tu iPhone 15. Protección simple y sofisticada.",
     "idCategoria": "clean",
     "modelo": "iPhone 15",
@@ -83,11 +93,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/clean.jpg"]
+    "imagenes": [
+      "img/productos/iphone15Clean.png"
+    ]
   },
   {
     "id": 8,
-    "nombre": "Funda Clean Lite",
+    "nombre": "Funda Clean iPhone 13 Pro Max",
     "descripcion": "Funda Clean en versión Lite para tu iPhone 13. Protección esencial con estilo minimalista.",
     "idCategoria": "clean",
     "modelo": "iPhone 13 Pro Max",
@@ -95,7 +107,9 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 7,
     "likes": 140,
-    "imagenes": ["img/clean_lite.jpg"]
+    "imagenes": [
+      "img/productos/iphone13ProMaxClean.png"
+    ]
   },
   {
     "id": 9,
@@ -107,7 +121,9 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 200,
-    "imagenes": ["img/clean_pro.jpg"]
+    "imagenes": [
+      "img/productos/iphone15ProMaxClean.png"
+    ]
   },
   {
     "id": 10,

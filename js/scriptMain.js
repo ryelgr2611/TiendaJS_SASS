@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function generarContenidoCategoria(categoria) {
         return `
         <div class="col mt-4 cartaRec">
-        <a href="../recomendados.html?tipo=${categoria.id}" class="card-link">
+        <a href="../nuestrasFundas.html?tipo=${categoria.id}" class="card-link">
             <div class="card border-0 shadow-sm">
                 <div class="card-body text-center">
                     <h5 class="card-title">${categoria.nombre}</h5>

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const container = document.querySelector('.container');
     const selectFundas = document.getElementById('selectFundas');
     const selectModelo = document.getElementById('selectModelo');
-    const fundas = document.querySelector('.fundas');
+    const fundas = document.querySelector('.grid-container');
 
     try {
         const [categoriasResponse, productosResponse] = await Promise.all([
@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         ]);
 
         // Procesar las categorías
-        categoriasResponse.forEach(categoria => {
+        const categoriasRecomendadas = categoriasResponse.filter(categoria => categoria.recomendados === true);
+        categoriasRecomendadas.forEach(categoria => {
             const option = document.createElement('option');
             option.value = categoria.id;
             option.textContent = categoria.nombre;
@@ -32,6 +33,10 @@ document.addEventListener("DOMContentLoaded", async function() {
             productosFiltrados.forEach(producto => {
                 cardMaker(producto);
             });
+        }else{
+            productosResponse.forEach(producto => {
+                cardMaker(producto);
+            })
         }
 
         // Procesar los modelos de iPhone
@@ -48,9 +53,9 @@ document.addEventListener("DOMContentLoaded", async function() {
             const idSeleccionado = selectFundas.value;
             const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
             if (categoriaSeleccionada) {
-                window.location.href = 'recomendados.html?tipo=' + idSeleccionado;
+                window.location.href = 'nuestrasFundas.html?tipo=' + idSeleccionado;
             }else{
-                window.location.href = 'recomendados.html';
+                window.location.href = 'nuestrasFundas.html';
             }
         });
     } catch (error) {
@@ -82,7 +87,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     function cardMaker(producto) {
         let contenido = `
             <div class="cartaProducto">
-                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <img src="${producto.imagenes[0]}" alt="${producto.nombre}">
+                <p class="text-center">${producto.modelo}</p>
             </div>
         `;
         fundas.innerHTML += contenido;
