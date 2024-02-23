@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             productosFiltrados.forEach(producto => {
                 cardMaker(producto);
             });
-        }else{
+        } else {
             productosResponse.forEach(producto => {
                 cardMaker(producto);
             })
@@ -48,15 +48,14 @@ document.addEventListener("DOMContentLoaded", async function() {
             selectModelo.appendChild(option);
         });
 
-        // Event listener para el cambio de opción en el select
+        // Agregar event listener para el cambio de opción en el select de modelo
+        selectModelo.addEventListener('change', function() {
+            filtrarProductosPorModelo(productosResponse,idTipo);
+        });
+
+        // Agregar event listener para el cambio de opción en el select de tipo de fundas
         selectFundas.addEventListener('change', function() {
-            const idSeleccionado = selectFundas.value;
-            const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
-            if (categoriaSeleccionada) {
-                window.location.href = 'nuestrasFundas.html?tipo=' + idSeleccionado;
-            }else{
-                window.location.href = 'nuestrasFundas.html';
-            }
+            redirigirSegunCategoria(categoriasResponse);
         });
     } catch (error) {
         console.error('Error al obtener los datos:', error);
@@ -86,11 +85,47 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function cardMaker(producto) {
         let contenido = `
+        <a href="../producto.html?idProducto=${producto.id}" class="card-link text-decoration-none">
             <div class="cartaProducto">
                 <img src="${producto.imagenes[0]}" alt="${producto.nombre}">
                 <p class="text-center">${producto.modelo}</p>
             </div>
+        </>
         `;
         fundas.innerHTML += contenido;
     }
+
+    function filtrarProductosPorModelo(productosResponse,idTipo) {
+        const modeloSeleccionado = selectModelo.value;
+        
+    
+        // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
+        let productosFiltrados;
+        if (idTipo) {
+            productosFiltrados = productosResponse.filter(producto => {
+                return producto.modelo === modeloSeleccionado && producto.idCategoria === idTipo;
+            });
+        } else {
+            productosFiltrados = productosResponse.filter(producto => producto.modelo === modeloSeleccionado);
+        }
+    
+        // Limpiar las cartas existentes antes de agregar las nuevas
+        fundas.innerHTML = '';
+        productosFiltrados.forEach(producto => {
+            cardMaker(producto);
+        });
+    }
+    
+
+    function redirigirSegunCategoria(categoriasResponse) {
+        const idSeleccionado = selectFundas.value;
+        const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
+        if (categoriaSeleccionada) {
+            window.location.href = 'nuestrasFundas.html?tipo=' + idSeleccionado;
+        } else {
+            window.location.href = 'nuestrasFundas.html';
+        }
+    }
+
+    
 });

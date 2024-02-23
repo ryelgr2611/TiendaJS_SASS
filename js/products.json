@@ -113,7 +113,7 @@
   },
   {
     "id": 9,
-    "nombre": "Funda Clean Pro",
+    "nombre": "Funda Clean iPhone 15 Pro Max",
     "descripcion": "Versión Pro de la Funda Clean para tu iPhone 15 Pro Max. Elegancia y protección de alto nivel.",
     "idCategoria": "clean",
     "modelo": "iPhone 15 Pro Max",
@@ -127,7 +127,7 @@
   },
   {
     "id": 10,
-    "nombre": "Funda Solid",
+    "nombre": "Funda Solid iPhone 14",
     "descripcion": "Protege tu iPhone 15 con estilo sólido y elegante con esta Funda Solid.",
     "idCategoria": "solid",
     "modelo": "iPhone 14",
@@ -135,11 +135,12 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/solido.jpg"]
+    "imagenes": [
+      "img/productos/iphone14Solid.png"]
   },
   {
     "id": 11,
-    "nombre": "Funda Solid Plus",
+    "nombre": "Funda Solid Plus iPhone 15 Plus",
     "descripcion": "Versión Plus de la Funda Solid para tu iPhone 15 Plus. Elegancia en tamaño grande.",
     "idCategoria": "solid",
     "modelo": "iPhone 15 Plus",
@@ -147,11 +148,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 170,
-    "imagenes": ["img/solido_plus.jpg"]
+    "imagenes": [
+      "img/productos/iphone15PlusSolid.png"
+    ]
   },
   {
     "id": 12,
-    "nombre": "Funda Solid Mini",
+    "nombre": "Funda Solid SE",
     "descripcion": "Funda Solid en versión Mini para tu iPhone SE. Estilo compacto y seguro.",
     "idCategoria": "solid",
     "modelo": "iPhone SE",
@@ -159,11 +162,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 6,
     "likes": 130,
-    "imagenes": ["img/solido_mini.jpg"]
+    "imagenes": [
+      "img/productos/iphoneSESolid.png"
+    ]
   },
   {
     "id": 13,
-    "nombre": "Funda Custom",
+    "nombre": "Funda Custom iPhone 13 Mini",
     "descripcion": "Personaliza tu iPhone 15 con esta Funda Custom. ¡Tú decides cómo lucir!",
     "idCategoria": "custom",
     "modelo": "iPhone 13 Mini",
@@ -171,11 +176,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/custom.jpg"]
+    "imagenes": [
+      "img/productos/iphone13MiniCustom.png"
+    ]
   },
   {
     "id": 14,
-    "nombre": "Funda Custom Pro",
+    "nombre": "Funda Custom iPhone 15 Pro",
     "descripcion": "Versión Pro de la Funda Custom para tu iPhone 15 Pro. Personalización y protección de alta calidad.",
     "idCategoria": "custom",
     "modelo": "iPhone 15 Pro",
@@ -183,11 +190,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 180,
-    "imagenes": ["img/custom_pro.jpg"]
+    "imagenes": [
+      "img/productos/iphone15ProCustom.png"
+    ]
   },
   {
     "id": 15,
-    "nombre": "Funda Custom Mini",
+    "nombre": "Funda Custom iPhone 12 Mini",
     "descripcion": "Funda Custom en versión Mini para tu iPhone 12 Mini. Estilo único en tamaño compacto.",
     "idCategoria": "custom",
     "modelo": "iPhone 12 Mini",
@@ -195,11 +204,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 6,
     "likes": 130,
-    "imagenes": ["img/custom_mini.jpg"]
+    "imagenes": [
+      "img/productos/iphone12MiniCustom.png"
+    ]
   },
   {
     "id": 16,
-    "nombre": "Funda CaseOutfit",
+    "nombre": "Funda CaseOutfit iPhone 14 Pro",
     "descripcion": "Combina tu ropa con tu funda. Dale un toque de estilo a tu iPhone 15 con esta funda CaseOutfit.",
     "idCategoria": "caseOutfit",
     "modelo": "iPhone 14 Pro",
@@ -207,23 +218,27 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/outfit.jpg"]
+    "imagenes": [
+      "img/productos/iphone14ProCaseOutfit.png"
+    ]
   },
   {
     "id": 17,
-    "nombre": "Funda CaseOutfit Sport",
-    "descripcion": "Funda CaseOutfit en versión Sport para tu iPhone 15. Estilo deportivo y protección garantizada.",
+    "nombre": "Funda CaseOutfit Sport XR",
+    "descripcion": "Funda CaseOutfit en versión Sport para tu iPhone XR. Estilo deportivo y protección garantizada.",
     "idCategoria": "caseOutfit",
     "modelo": "iPhone XR",
     "precio": 28,
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 170,
-    "imagenes": ["img/outfit_sport.jpg"]
+    "imagenes": [
+      "img/productos/iphoneXRCaseOutfit.png"
+    ]
   },
   {
     "id": 18,
-    "nombre": "Funda CaseOutfit Elegance",
+    "nombre": "Funda CaseOutfit Elegance iPhone 15 Plus",
     "descripcion": "Funda CaseOutfit en versión Elegance para tu iPhone 15. Estilo refinado para ocasiones especiales.",
     "idCategoria": "caseOutfit",
     "modelo": "iPhone 15 Plus",
@@ -231,11 +246,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 200,
-    "imagenes": ["img/outfit_elegance.jpg"]
+    "imagenes": [
+      "img/productos/iphone15PlusCaseOutfit.png"
+    ]
   },
   {
     "id": 19,
-    "nombre": "Funda Originals",
+    "nombre": "Funda Originals iPhone 13 Pro",
     "descripcion": "Estilo simple, made by Apple. Protege tu iPhone 15 con esta funda Originals de Apple.",
     "idCategoria": "original",
     "modelo": "iPhone 13 Pro",
@@ -243,11 +260,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/original.jpg"]
+    "imagenes": [
+      "img/productos/iphone13ProOriginal.png"
+    ]
   },
   {
     "id": 20,
-    "nombre": "Funda Originals Leather",
+    "nombre": "Funda Originals SE",
     "descripcion": "Funda Originals en versión Leather para tu iPhone 15. Elegancia y calidad en cada detalle.",
     "idCategoria": "original",
     "modelo": "iPhone SE",
@@ -255,11 +274,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 170,
-    "imagenes": ["img/original_leather.jpg"]
+    "imagenes": [
+      "img/productos/iphoneSEOriginal.png"
+    ]
   },
   {
     "id": 21,
-    "nombre": "Funda Originals Clear",
+    "nombre": "Funda Originals iPhone 14 Plus",
     "descripcion": "Funda Originals en versión Clear para tu iPhone 15. Diseño transparente para lucir el diseño original de tu dispositivo.",
     "idCategoria": "original",
     "modelo": "iPhone 14 Plus",
@@ -267,11 +288,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 160,
-    "imagenes": ["img/original_clear.jpg"]
+    "imagenes": [
+      "img/productos/iphone14PlusOriginal.png"
+    ]
   },
   {
     "id": 22,
-    "nombre": "Funda Cuero",
+    "nombre": "Funda Cuero iPhone X",
     "descripcion": "Cuero molón. Dale un toque de elegancia a tu iPhone 15 con esta funda de cuero.",
     "idCategoria": "leather",
     "modelo": "iPhone X",
@@ -279,11 +302,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/leather.jpg"]
+    "imagenes": [
+      "img/productos/iphoneXLeather.png"
+    ]
   },
   {
     "id": 23,
-    "nombre": "Funda Cuero Premium",
+    "nombre": "Funda Cuero Premium iPhone 12 Pro Max",
     "descripcion": "Versión Premium de la Funda Cuero para tu iPhone 15. Calidad excepcional y estilo incomparable.",
     "idCategoria": "leather",
     "modelo": "iPhone 12 Pro Max",
@@ -291,11 +316,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 2,
     "likes": 190,
-    "imagenes": ["img/leather_premium.jpg"]
+    "imagenes": [
+      "img/productos/iphone12ProMaxLeather.png"
+    ]
   },
   {
     "id": 24,
-    "nombre": "Funda Cuero Clásico",
+    "nombre": "Funda Cuero Clásico iPhone 11",
     "descripcion": "Funda Cuero en versión Clásico para tu iPhone 15. Elegancia atemporal en cada detalle.",
     "idCategoria": "leather",
     "modelo": "iPhone 11",
@@ -303,11 +330,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 180,
-    "imagenes": ["img/leather_classic.jpg"]
+    "imagenes": [
+      "img/productos/iphone11Leather.png"
+    ]
   },
   {
     "id": 25,
-    "nombre": "Funda Eco-Friendly",
+    "nombre": "Funda Eco-Friendly iPhone 14",
     "descripcion": "Por un medioambiente mejor. Protege tu iPhone 15 de forma sostenible con esta funda Eco-Friendly.",
     "idCategoria": "ecoF",
     "modelo": "iPhone 14",
@@ -315,11 +344,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 5,
     "likes": 150,
-    "imagenes": ["img/eco.jpg"]
+    "imagenes": [
+      "img/productos/iphone14EcoF.png"
+    ]
   },
   {
     "id": 26,
-    "nombre": "Funda Eco-Friendly Bamboo",
+    "nombre": "Funda Eco-Friendly Bamboo iPhone 12",
     "descripcion": "Funda Eco-Friendly en versión Bamboo para tu iPhone 15. Estilo natural y compromiso con el medioambiente.",
     "idCategoria": "ecoF",
     "modelo": "iPhone 12",
@@ -327,11 +358,13 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 4,
     "likes": 170,
-    "imagenes": ["img/eco_bamboo.jpg"]
+    "imagenes": [
+      "img/productos/iphone12EcoF.png"
+    ]
   },
   {
     "id": 27,
-    "nombre": "Funda Eco-Friendly Recycled",
+    "nombre": "Funda Eco-Friendly iPhone 13",
     "descripcion": "Funda Eco-Friendly fabricada con materiales reciclados para tu iPhone 15. Sostenibilidad y protección en un solo producto.",
     "idCategoria": "ecoF",
     "modelo": "iPhone 13",
@@ -339,6 +372,8 @@
     "numeroDeVentas": 0,
     "cantidadDeStock": 3,
     "likes": 160,
-    "imagenes": ["img/eco_recycled.jpg"]
+    "imagenes": [
+      "img/productos/iphone13EcoF.png"
+    ]
   }
 ]

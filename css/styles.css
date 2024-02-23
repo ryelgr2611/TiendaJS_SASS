@@ -166,6 +166,19 @@ nav{
     height: 100%;
 }
 
+.fundas img{
+    filter: drop-shadow(
+        0 0 10px rgba(0,0,0.8)
+    );
+}
+.formulario select:focus,
+.formulario input:focus {
+    outline-color: #1C8445;
+    box-shadow: 0 0 20px #1C8445;
+    border: 1px solid #000000;
+}
+
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -176,10 +189,23 @@ nav{
     border: 0px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
+    color: #000000;
 }
 
 .cartaProducto img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.cartaProducto a{
+    text-decoration: none;
+    color: black;
+}
+
+.cartaProducto:hover{
+    transform: translateY(-5px); /* Mover la carta hacia arriba */
+    font-weight: bold;
+    color: #20883f;
+    
 }

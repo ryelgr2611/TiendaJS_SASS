@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -97,20 +98,24 @@
     <div class="filtros mt-5 ">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="selectFundas" class="form-label">Fundas</label>
                     <select class="form-select" id="selectFundas">
                         <option value="nada">Selecciona la categoria</option>
                         <!-- Aqui van las opciones cargadas desde el js -->
                     </select>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="selectModelo" class="form-label">Modelo de iPhone</label>
                     <select class="form-select" id="selectModelo">
                         <option value="nada">Selecciona el modelo</option>
                         <!-- Aquí van lps modelos cargados desde el js -->
                     </select>
                 </div>
+                <div class="col-md-4">
+                    <label for="inputBusqueda" class="form-label">Buscar:</label>
+                    <input type="text" class="form-control" id="inputBusqueda" placeholder="Ingrese su búsqueda">
+                  </div>
             </div>
         </div>
         <div class="linea mt-5 ">
