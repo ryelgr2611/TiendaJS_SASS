@@ -98,7 +98,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     function filtrarProductosPorModelo(productosResponse,idTipo) {
         const modeloSeleccionado = selectModelo.value;
         
-    
         // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
         let productosFiltrados;
         if (idTipo) {
@@ -122,6 +121,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
         if (categoriaSeleccionada) {
             window.location.href = 'nuestrasFundas.html?tipo=' + idSeleccionado;
+            
         } else {
             window.location.href = 'nuestrasFundas.html';
         }

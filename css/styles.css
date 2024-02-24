@@ -1,69 +1,45 @@
-body{
+body {
     font-family: "Montserrat", sans-serif;
     background-color: rgb(243, 243, 243);
 }
-nav{
+
+nav {
     background-color: rgb(243, 243, 243);
 }
+
 .navbar-nav .nav-link {
     color: black; /* Cambiar el color del texto a negro */
     font-weight: bold;
 }
 
-.recomendados{
+.recomendados {
     color: black;
 }
+
 /* Estilo para las cartas dentro de los carousel items */
 .card {
     height: 100%; /* Establecer una altura fija para las cartas */
     width: 20rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    .card p {
-        font-weight: bold;
-    }
-    .card h5 {
-        font-style: italic;
-    }
+
+.card p {
+    font-weight: bold;
+}
+
+.card h5 {
+    font-style: italic;
+}
 
 .carousel-control-prev-icon {
- background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
 .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2304b03b' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-@media (width <=1200px) {
-    .card {
-        height: 100%; /* Establecer una altura fija para las cartas */
-        width: 11rem;
-    }
-    .carousel-item .row {
-        display: flex;
-        justify-content: center;
-    }
-
-    .carousel-item .row .col {
-        margin: 0 0.5rem;
-    }
-}
-
-
-/* Media query para pantallas pequeñas y extra pequeñas */
-@media (max-width: 650px) {
-    /* Definir el estilo para el carrusel cuando el tamaño de la pantalla es pequeño o extra pequeño */
-    .carousel-item .row {
-        display: block;
-    }
-
-    .carousel-item .row .col {
-        margin: 0 auto;
-    }
-}
-
-
-.match{
+.match {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -74,36 +50,6 @@ nav{
     width: 100%;
     height: auto; 
     display: block;
-}
-
-@media (max-width: 800px) {
-    .match {
-        grid-template-areas: 
-            "fila1"
-            "fila2"
-            "fila4"
-            "fila3";
-    }
-
-    .fila1{
-        grid-area: fila1;
-        grid-column: 1/3;
-    }
-
-    .fila2{
-        grid-area: fila2;
-        grid-column: 1/3;
-    }
-
-    .fila3{
-        grid-area: fila3;
-        grid-column: 1/3;
-    }
-
-    .fila4{
-        grid-area: fila4;
-        grid-column: 1/3;
-    }
 }
 
 .fila2 {
@@ -123,6 +69,7 @@ nav{
     color: antiquewhite;
     font-weight: bolder;
 }
+
 .card:hover {
     transform: translateY(-5px); /* Mover la carta hacia arriba */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
@@ -140,25 +87,26 @@ nav{
     height: auto;
 }
 
-.cartaRec a{
+.cartaRec a {
     text-decoration: none;
     color: black;
 }
 
-.cartaRec a:hover{
+.cartaRec a:hover {
     font-weight: bold;
     color: #20883f;
 }
 
-.footer a{
+.footer a {
     text-decoration: none;
     color: black;
 }
 
-.footer a:hover{
+.footer a:hover {
     font-weight: bold;
     color: #20883f;
 }
+
 .fundas {
     display: flex;
     justify-content: center; 
@@ -166,18 +114,16 @@ nav{
     height: 100%;
 }
 
-.fundas img{
-    filter: drop-shadow(
-        0 0 10px rgba(0,0,0.8)
-    );
+.fundas img {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
 }
+
 .formulario select:focus,
 .formulario input:focus {
     outline-color: #1C8445;
     box-shadow: 0 0 20px #1C8445;
     border: 1px solid #000000;
 }
-
 
 .grid-container {
     display: grid;
@@ -198,14 +144,116 @@ nav{
     display: block;
 }
 
-.cartaProducto a{
+.cartaProducto a {
     text-decoration: none;
     color: black;
 }
 
-.cartaProducto:hover{
+.cartaProducto:hover {
     transform: translateY(-5px); /* Mover la carta hacia arriba */
     font-weight: bold;
     color: #20883f;
-    
+}
+
+/* estilos producto */
+#thumbs a {
+
+    padding: 3px;
+    margin: 2px;
+    float: left;
+  }
+  #thumbs img {
+    width: 100px;
+    padding: 3px;
+    margin: 2px;
+    float: left;
+  }
+
+#thumbs a:hover {
+    border-color: #FF9900;
+}
+
+#thumbs li {
+    list-style: none;
+}
+
+#thumbs {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));;
+    margin: 0;
+    padding: 0;
+}
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  .color-circle:hover {
+    border-color: #ccc;
+  }
+
+/* Media queries */
+@media (width <=1200px) {
+    .card {
+        height: 100%; /* Establecer una altura fija para las cartas */
+        width: 11rem;
+    }
+    .carousel-item .row {
+        display: flex;
+        justify-content: center;
+    }
+    .carousel-item .row .col {
+        margin: 0 0.5rem;
+    }
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query para pantallas pequeñas y extra pequeñas */
+@media (max-width: 650px) {
+    /* Definir el estilo para el carrusel cuando el tamaño de la pantalla es pequeño o extra pequeño */
+    .carousel-item .row {
+        display: block;
+    }
+    .carousel-item .row .col {
+        margin: 0 auto;
+    }
+    .grid-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .match {
+        grid-template-areas: 
+            "fila1"
+            "fila2"
+            "fila4"
+            "fila3";
+    }
+
+    .fila1 {
+        grid-area: fila1;
+        grid-column: 1/3;
+    }
+
+    .fila2 {
+        grid-area: fila2;
+        grid-column: 1/3;
+    }
+
+    .fila3 {
+        grid-area: fila3;
+        grid-column: 1/3;
+    }
+
+    .fila4 {
+        grid-area: fila4;
+        grid-column: 1/3;
+    }
 }

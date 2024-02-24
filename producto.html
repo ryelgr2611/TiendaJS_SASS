@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg m-0">
         <div class="container-fluid m-0">
             <!-- Logo o marca -->
-            <a class="navbar-brand ms-1 " href="#">
+            <a class="navbar-brand ms-1 " href="index.html">
                 <img src="img/logos/logoNav.png" alt="" class="">
             </a>
             <!-- Botón para mostrar o esconder el menú en dispositivos pequeños -->
@@ -63,6 +63,75 @@
             </div>
         </div>
     </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6"> <!-- Esta columna ocupará la mitad del ancho -->
+                <!-- Contenido de la mitad izquierda -->
+                <div class="text-center">
+                    <!-- Contenido de la capa de imagen -->
+                    <div id="capaImagenProducto" class="">
+                        <p><img id="largeImg" src="img/productos/iphone12MiniCustom.png" alt="Imagen grande"></p>
+                        <ul id="thumbs" class="text-center ">
+                            <!-- Miniaturas de imágenes -->
+                            <li>
+                                <a href="#" title="Imagen 2"><img src="img/productos/iphone12MiniCustom.png"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="Imagen 3"><img src="img/productos/iphone13MiniCustom.png"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="Imagen 4"><img src="img/productos/iphone14EcoF.png"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"> <!-- Esta columna ocupará la otra mitad del ancho -->
+                <!-- Contenido de la mitad derecha -->
+                    <!-- Contenido del texto -->
+                    <div class="col-12">
+                        <h1 class="text fw-bold"> SolidSuit</h1>
+                        <h5>Funda </h5>
+                        <hr>
+                        <label for="selectModelo" class="form-label">Modelo de iPhone</label>
+                        <select class="form-select mt-4 " id="selectModelo">
+                            <option value="nada">Selecciona el modelo</option>
+                            <!-- Aquí van lps modelos cargados desde el js -->
+                        </select>
+                        <hr class="mt-5 ">
+                        <div class="row">
+                            <div class="col-4 d-flex justify-content-center ">
+                              <div class="color-circle" style="background-color: rgb(84, 127, 144);"></div>
+                            </div>
+                            <div class="col-4 d-flex justify-content-center  ">
+                              <div class="color-circle" style="background-color: rgb(184, 126, 27);"></div>
+                            </div>
+                            <div class="col-4 d-flex justify-content-center ">
+                                <div class="color-circle" style="background-color: rgb(0, 0, 0);"></div>
+                            </div>
+                        </div>
+                        <hr class="">
+                        <div class="row justify-content-end">
+                            <div class="col-9">
+                                <button type="button" class="btn btn-danger w-100">
+                                    <i class="bi-cart3">
+                                        <p class="d-inline fw-bold fst-normal"> Añadir al carrito</p>
+                                    </i>
+                                </button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-white border-1 border-black text-start ">
+                                    <i class="bi-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Otras secciones del contenido -->
+            </div>
+        </div>
+    </div>
+    
  
 
     <!-- Footer -->
@@ -171,6 +240,6 @@
         </div>
         <p class="mb-0 text-center" id="copyFooter">&copy; 2024 Raúl Yélamos. Todos los derechos reservados.</p>
     </div>
-    <script src="js/scriptMain.js"></script>
+    <script src="js/producto.js"></script>
 </body>
 </html>
