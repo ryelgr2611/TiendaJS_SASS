@@ -157,17 +157,19 @@ nav {
 
 /* estilos producto */
 #thumbs a {
-
     padding: 3px;
     margin: 2px;
     float: left;
+    
   }
   #thumbs img {
     width: 100px;
     padding: 3px;
     margin: 2px;
     float: left;
+    
   }
+
 
 #thumbs a:hover {
     border-color: #FF9900;

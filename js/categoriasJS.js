@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const selectFundas = document.getElementById('selectFundas');
     const selectModelo = document.getElementById('selectModelo');
     const fundas = document.querySelector('.grid-container');
+    const inputBusqueda = document.getElementById('inputBusqueda');
 
     try {
         const [categoriasResponse, productosResponse] = await Promise.all([
@@ -57,6 +58,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         selectFundas.addEventListener('change', function() {
             redirigirSegunCategoria(categoriasResponse);
         });
+
+        // Agregar event listener para el input de búsqueda
+        inputBusqueda.addEventListener('input', function() {
+            const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
+            const productosFiltrados = filtrarProductosPorBusqueda(productosResponse, textoBusqueda);
+            renderizarProductos(productosFiltrados);
+        });
+
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
@@ -114,7 +123,24 @@ document.addEventListener("DOMContentLoaded", async function() {
             cardMaker(producto);
         });
     }
+
+    function filtrarProductosPorBusqueda(productos, texto) {
+        if (!texto) {
+            return productos; // Si no hay texto de búsqueda, mostrar todos los productos
+        }
+        return productos.filter(producto =>
+            (producto.nombre && producto.nombre.toLowerCase().includes(texto)) ||
+            (producto.categoria && producto.categoria.toLowerCase().includes(texto))
+        );
+    }
     
+
+    function renderizarProductos(productos) {
+        fundas.innerHTML = ''; // Limpiar las cartas existentes antes de agregar las nuevas
+        productos.forEach(producto => {
+            cardMaker(producto);
+        });
+    }
 
     function redirigirSegunCategoria(categoriasResponse) {
         const idSeleccionado = selectFundas.value;
@@ -127,5 +153,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-    
 });

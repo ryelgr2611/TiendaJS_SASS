@@ -10,7 +10,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone15crocopple.png"
+      "img/productos/iphone15crocopple.png",
+      "img/productos/iphone15crocopple.png",
+      "img/productos/iphone15crocopple.png",
+      "img/productos/iphoneSEcrocopple.png"
     ]
   },
   {
@@ -25,7 +28,8 @@
     "likes": 120,
     "imagenes": [
       "img/productos/iphone13crocopple.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 3,
@@ -39,7 +43,8 @@
     "likes": 100,
     "imagenes": [
       "img/productos/iphoneSEcrocopple.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 4,
@@ -67,7 +72,8 @@
     "likes": 180,
     "imagenes": [
       "img/productos/iphone15ProTie.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 6,
@@ -136,7 +142,9 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone14Solid.png"]
+      "img/productos/iphone14Solid.png"
+    ],
+    "colores": ["black"]
   },
   {
     "id": 11,
@@ -150,7 +158,8 @@
     "likes": 170,
     "imagenes": [
       "img/productos/iphone15PlusSolid.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 12,
@@ -164,7 +173,8 @@
     "likes": 130,
     "imagenes": [
       "img/productos/iphoneSESolid.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 13,
@@ -262,7 +272,8 @@
     "likes": 150,
     "imagenes": [
       "img/productos/iphone13ProOriginal.png"
-    ]
+    ],
+    "colores": ["red", "blue", "yellow"]
   },
   {
     "id": 20,
@@ -276,7 +287,8 @@
     "likes": 170,
     "imagenes": [
       "img/productos/iphoneSEOriginal.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 21,
@@ -290,7 +302,8 @@
     "likes": 160,
     "imagenes": [
       "img/productos/iphone14PlusOriginal.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 22,
@@ -304,7 +317,8 @@
     "likes": 150,
     "imagenes": [
       "img/productos/iphoneXLeather.png"
-    ]
+    ],
+    "colores": ["red", "blue", "green"]
   },
   {
     "id": 23,
@@ -346,7 +360,8 @@
     "likes": 150,
     "imagenes": [
       "img/productos/iphone14EcoF.png"
-    ]
+    ],
+    "colores": ["red", "yellow", "green"]
   },
   {
     "id": 26,
@@ -374,6 +389,7 @@
     "likes": 160,
     "imagenes": [
       "img/productos/iphone13EcoF.png"
-    ]
+    ],
+    "colores": ["red", "blue", "yellow"]
   }
 ]
