@@ -29,19 +29,28 @@
             </button>
             <!-- Contenedor del menú -->
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <!-- Elementos de menú -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                    <a class="nav-link" href="about.html">Sobre Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dispositivos</a>
+                    <div class="dropdown"> <!-- Agregamos un contenedor dropdown -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dispositivosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dispositivos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dispositivosDropdown"> <!-- Submenú -->
+                            <div class="row row-cols-3">
+                            </div>
+                            <!-- Puedes añadir más elementos del submenú según sea necesario -->
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="nuestrasFundas.html">Nuestras Fundas</a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link" href="#">Marcas Colaboradoras</a>
+                <a class="nav-link" href="marcas.html">Marcas Colaboradoras</a>
                 </li>
                 
             </ul>
@@ -153,6 +162,9 @@
         </div>
     </div>
 
+    <div class="marcas">
+
+    </div>
     <!-- Footer -->
     <div class="container-fluid bg-black mt-5 footer">
         <div class="container">
@@ -260,5 +272,7 @@
         <p class="mb-0 text-center" id="copyFooter">&copy; 2024 Raúl Yélamos. Todos los derechos reservados.</p>
     </div>
     <script src="js/scriptMain.js"></script>
+    <script src="js/scriptDispositivos.js"></script>
+
 </body>
 </html>

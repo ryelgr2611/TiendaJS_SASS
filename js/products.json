@@ -317,8 +317,7 @@
     "likes": 150,
     "imagenes": [
       "img/productos/iphoneXLeather.png"
-    ],
-    "colores": ["red", "blue", "green"]
+    ]
   },
   {
     "id": 23,

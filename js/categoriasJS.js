@@ -96,13 +96,20 @@ document.addEventListener("DOMContentLoaded", async function() {
         let contenido = `
         <a href="../producto.html?idProducto=${producto.id}" class="card-link text-decoration-none">
             <div class="cartaProducto">
-                <img src="${producto.imagenes[0]}" alt="${producto.nombre}">
+                <img src="${producto.imagenes[0]}" alt="${producto.nombre}" style="${producto.colores ? 'filter: hue-rotate(' + getHueRotation() + 'deg);' : ''}">
                 <p class="text-center">${producto.modelo}</p>
             </div>
-        </>
+        </a>
         `;
         fundas.innerHTML += contenido;
     }
+    
+    function getHueRotation() {
+        const rotations = [0, 60, 120, 240];
+        return rotations[Math.floor(Math.random() * rotations.length)]; // Obtener una rotación aleatoria de las disponibles
+    }
+    
+    
 
     function filtrarProductosPorModelo(productosResponse,idTipo) {
         const modeloSeleccionado = selectModelo.value;
@@ -137,11 +144,28 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function renderizarProductos(productos) {
         fundas.innerHTML = ''; // Limpiar las cartas existentes antes de agregar las nuevas
-        productos.forEach(producto => {
-            cardMaker(producto);
-        });
-    }
+        const mensajeNoResultados = document.getElementById('mensajeNoResultados');
+        const gridFundas= document.querySelector('.grid-container');
+    
+        if (productos.length === 0) {
+            // Mostrar el mensaje si no hay productos
+            mensajeNoResultados.classList.remove('d-none');
+            mensajeNoResultados.classList.add('d-block');
+            gridFundas.classList.add('d-none');
+        } else {
+            // Ocultar el mensaje si hay productos
+            mensajeNoResultados.classList.remove('d-block');
+            mensajeNoResultados.classList.add('d-none');
+            gridFundas.classList.remove('d-none');
 
+    
+            // Agregar las nuevas cartas de productos
+            productos.forEach(producto => {
+                cardMaker(producto);
+            });
+        }
+    }
+    
     function redirigirSegunCategoria(categoriasResponse) {
         const idSeleccionado = selectFundas.value;
         const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
