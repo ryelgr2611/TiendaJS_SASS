@@ -149,7 +149,10 @@
     "cantidadDeStock": 3,
     "likes": 200,
     "imagenes": [
-      "img/productos/iphone15ProMaxClean.png"
+      "img/productos/iphone15ProMaxClean.png",
+      "img/productos/iphone15ProMaxClean.png",
+      "img/productos/iphone15ProMaxClean2.png",
+      "img/productos/iphone15ProMaxClean3.png"
     ]
   },
   {
@@ -163,7 +166,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone14Solid.png"
+      "img/productos/iphone14Solid.png",
+      "img/productos/iphone14Solid.png",
+      "img/productos/iphone14Solid2.png",
+      "img/productos/iphone14Solid3.png"
     ],
     "colores": ["black"]
   },
@@ -178,7 +184,10 @@
     "cantidadDeStock": 4,
     "likes": 170,
     "imagenes": [
-      "img/productos/iphone15PlusSolid.png"
+      "img/productos/iphone15PlusSolid.png",
+      "img/productos/iphone15PlusSolid.png",
+      "img/productos/iphone15PlusSolid2.png",
+      "img/productos/iphone15PlusSolid3.png"
     ],
     "colores": ["red", "blue", "green"]
   },
@@ -193,7 +202,10 @@
     "cantidadDeStock": 6,
     "likes": 130,
     "imagenes": [
-      "img/productos/iphoneSESolid.png"
+      "img/productos/iphoneSESolid.png",
+      "img/productos/iphoneSESolid.png",
+      "img/productos/iphoneSESolid2.png",
+      "img/productos/iphoneSESolid3.png"
     ],
     "colores": ["red", "blue", "green"]
   },
@@ -208,7 +220,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone13MiniCustom.png"
+      "img/productos/iphone13MiniCustom.png",
+      "img/productos/iphone13MiniCustom.png",
+      "img/productos/iphone13MiniCustom2.png",
+      "img/productos/iphone13MiniCustom3.png"
     ]
   },
   {
