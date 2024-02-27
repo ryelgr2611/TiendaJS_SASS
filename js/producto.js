@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                 <p><img id="largeImg" src="${producto.imagenes[0]}" alt="Imagen grande"></p>
                                 <ul id="thumbs" class="text-center ">
                                     ${producto.imagenes?.slice(1).map((imagen, index) => `
-                                        <li><a href="#" title="Imagen ${index + 2}"><img src="${imagen}"></a></li>
+                                        <li><a href="#" title="Imagen ${index + 2}"><img src="${imagen}" class="miniImg"></a></li>
                                     `).join('')}
                                 </ul>
                             </div>
@@ -142,8 +142,13 @@ document.addEventListener("DOMContentLoaded", async function() {
         function cambiarColorImagen(color) {
             // Obtener el elemento de la imagen
             const imagen = document.getElementById('largeImg');
+            const imagenesChicas = document.querySelectorAll('.miniImg');
             // Aplicar el filtro de color utilizando CSS
             imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
+            imagenesChicas.forEach(imagen => {
+                imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
+            });
+
         }
 
         function getColorRotation(color) {
