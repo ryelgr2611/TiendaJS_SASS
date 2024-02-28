@@ -215,6 +215,13 @@ nav {
     border-color: #ccc;
   }
 
+.futuro{
+    background-image: url(../img/backgroundNew.png);
+    background-size: cover;
+    width: 100%;
+    height: 800px;
+    background-position: center;
+}
 /* Media queries */
 @media (width <=1200px) {
     .card {
