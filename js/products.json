@@ -237,7 +237,10 @@
     "cantidadDeStock": 4,
     "likes": 180,
     "imagenes": [
-      "img/productos/iphone15ProCustom.png"
+      "img/productos/iphone15ProCustom.png",
+      "img/productos/iphone15ProCustom.png",
+      "img/productos/iphone15ProCustom2.png",
+      "img/productos/iphone15ProCustom3.png"
     ]
   },
   {
@@ -251,7 +254,10 @@
     "cantidadDeStock": 6,
     "likes": 130,
     "imagenes": [
-      "img/productos/iphone12MiniCustom.png"
+      "img/productos/iphone12MiniCustom.png",
+      "img/productos/iphone12MiniCustom.png",
+      "img/productos/iphone12MiniCustom2.png",
+      "img/productos/iphone12MiniCustom3.png"
     ]
   },
   {
@@ -265,7 +271,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone14ProCaseOutfit.png"
+      "img/productos/iphone14ProCaseOutfit.png",
+      "img/productos/iphone14ProCaseOutfit.png",
+      "img/productos/iphone14ProCaseOutfit2.png",
+      "img/productos/iphone14ProCaseOutfit3.png"
     ]
   },
   {
@@ -279,7 +288,10 @@
     "cantidadDeStock": 4,
     "likes": 170,
     "imagenes": [
-      "img/productos/iphoneXRCaseOutfit.png"
+      "img/productos/iphoneXRCaseOutfit.png",
+      "img/productos/iphoneXRCaseOutfit.png",
+      "img/productos/iphoneXRCaseOutfit2.png",
+      "img/productos/iphoneXRCaseOutfit3.png"
     ]
   },
   {
@@ -293,7 +305,10 @@
     "cantidadDeStock": 3,
     "likes": 200,
     "imagenes": [
-      "img/productos/iphone15PlusCaseOutfit.png"
+      "img/productos/iphone15PlusCaseOutfit.png",
+      "img/productos/iphone15PlusCaseOutfit.png",
+      "img/productos/iphone15PlusCaseOutfit2.png",
+      "img/productos/iphone15PlusCaseOutfit3.png"
     ]
   },
   {
@@ -307,7 +322,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone13ProOriginal.png"
+      "img/productos/iphone13ProOriginal.png",
+      "img/productos/iphone13ProOriginal.png",
+      "img/productos/iphone13ProOriginal2.png",
+      "img/productos/iphone13ProOriginal3.png"
     ],
     "colores": ["red", "blue", "yellow"]
   },
@@ -322,7 +340,10 @@
     "cantidadDeStock": 4,
     "likes": 170,
     "imagenes": [
-      "img/productos/iphoneSEOriginal.png"
+      "img/productos/iphoneSEOriginal.png",
+      "img/productos/iphoneSEOriginal.png",
+      "img/productos/iphoneSEOriginal2.png",
+      "img/productos/iphoneSEOriginal3.png"
     ],
     "colores": ["red", "blue", "green"]
   },
@@ -337,7 +358,10 @@
     "cantidadDeStock": 3,
     "likes": 160,
     "imagenes": [
-      "img/productos/iphone14PlusOriginal.png"
+      "img/productos/iphone14PlusOriginal.png",
+      "img/productos/iphone14PlusOriginal.png",
+      "img/productos/iphone14PlusOriginal2.png",
+      "img/productos/iphone14PlusOriginal3.png"
     ],
     "colores": ["red", "blue", "green"]
   },
@@ -352,7 +376,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphoneXLeather.png"
+      "img/productos/iphoneXLeather.png",
+      "img/productos/iphoneXLeather.png",
+      "img/productos/iphoneXLeather2.png",
+      "img/productos/iphoneXLeather3.png"
     ]
   },
   {
@@ -366,7 +393,10 @@
     "cantidadDeStock": 2,
     "likes": 190,
     "imagenes": [
-      "img/productos/iphone12ProMaxLeather.png"
+      "img/productos/iphone12ProMaxLeather.png",
+      "img/productos/iphone12ProMaxLeather.png",
+      "img/productos/iphone12ProMaxLeather2.png",
+      "img/productos/iphone12ProMaxLeather3.png"
     ]
   },
   {
@@ -380,7 +410,10 @@
     "cantidadDeStock": 3,
     "likes": 180,
     "imagenes": [
-      "img/productos/iphone11Leather.png"
+      "img/productos/iphone11Leather.png",
+      "img/productos/iphone11Leather.png",
+      "img/productos/iphone11Leather2.png",
+      "img/productos/iphone11Leather3.png"
     ]
   },
   {
@@ -394,7 +427,10 @@
     "cantidadDeStock": 5,
     "likes": 150,
     "imagenes": [
-      "img/productos/iphone14EcoF.png"
+      "img/productos/iphone14EcoF.png",
+      "img/productos/iphone14EcoF.png",
+      "img/productos/iphone14EcoF2.png",
+      "img/productos/iphone14EcoF3.png"
     ],
     "colores": ["red", "yellow", "green"]
   },
@@ -409,7 +445,10 @@
     "cantidadDeStock": 4,
     "likes": 170,
     "imagenes": [
-      "img/productos/iphone12EcoF.png"
+      "img/productos/iphone12EcoF.png",
+      "img/productos/iphone12EcoF.png",
+      "img/productos/iphone12EcoF2.png",
+      "img/productos/iphone12EcoF3.png"
     ]
   },
   {

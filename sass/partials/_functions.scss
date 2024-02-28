@@ -1,0 +1,9 @@
+// Functions
+@function em($px, $base: 16px) {
+    @return #{$px / $base}em;
+  }
+  
+  @function rem($px, $base: 16px) {
+    @return #{$px / $base}rem;
+  }
+  
