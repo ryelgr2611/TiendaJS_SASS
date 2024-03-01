@@ -145,20 +145,32 @@ document.addEventListener("DOMContentLoaded", async function() {
             } else {
                 cart = JSON.parse(cart);
             }
-    
-            // Agregar información adicional al objeto del producto
-            producto.imagen = largeImg.src; // Agregar la URL de la imagen del producto
-            producto.nombre = document.querySelector('h5').innerText; // Agregar el nombre del producto
-    
-            // Agregar el producto al carrito
-            cart.push(producto);
-    
+        
+            // Obtener el color seleccionado
+            const selectedColor = producto.color;
+        
+            // Buscar si ya existe el mismo producto con el mismo color en el carrito
+            const existingProductIndex = cart.findIndex(item => item.id === producto.id && item.color === selectedColor);
+        
+            if (existingProductIndex !== -1) {
+                // Si el producto con el mismo color ya está en el carrito, aumentar la cantidad
+                cart[existingProductIndex].cantidad++;
+            } else {
+                // Si el producto con el mismo color no está en el carrito, agregarlo con cantidad 1
+                producto.imagen = largeImg.src; // Agregar la URL de la imagen del producto
+                producto.nombre = document.querySelector('h5').innerText; // Agregar el nombre del producto
+                producto.color = selectedColor; // Agregar el color seleccionado al objeto del producto
+                producto.cantidad = 1;
+                cart.push(producto);
+            }
+        
             // Guardar el carrito actualizado en localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-    
+        
             // Notificar al usuario que el producto se agregó al carrito
             alert('¡El producto se ha añadido al carrito!');
         });
+        
     
         function showThumbnail(src, title) {
             largeImg.src = src;
