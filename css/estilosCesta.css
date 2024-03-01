@@ -1,0 +1,12 @@
+/* Estilos cesta */
+
+#botonPedido
+{
+    background-color: #09782a;
+    border: #CCCCCC;
+}
+
+#botonPedido:hover
+{
+    background-color: #14562893;
+}

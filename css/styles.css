@@ -6,6 +6,14 @@ body {
 nav {
     background-color: rgb(243, 243, 243);
 }
+@media (min-width: 992px) {
+    .navbar.sticky-lg-top {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+  }
 
 .navbar-nav .nav-link {
     color: black; /* Cambiar el color del texto a negro */

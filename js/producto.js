@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             container.innerHTML = productoHTML;
 
             // Asignar event listener a las miniaturas después de que se ha generado el contenido
-            asignarEventListeners(productos);
+            asignarEventListeners(productos, producto);
         } else {
             console.error('Producto no encontrado');
         }
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             <hr>
                             <div class="row justify-content-end">
                                 <div class="col-9">
-                                    <button type="button" class="btn btn-dark  w-100">
+                                    <button type="button" class="btn btn-dark  w-100" id="addToCartBtn">
                                         <i class="bi-cart3">
                                             <p class="d-inline fw-bold fst-normal"> Añadir al carrito</p>
                                         </i>
@@ -99,34 +99,36 @@ document.addEventListener("DOMContentLoaded", async function() {
         `;
     }
 
-    function asignarEventListeners(productos) {
+    function asignarEventListeners(productos, producto) {
         let thumbs = document.getElementById("thumbs");
         let largeImg = document.getElementById("largeImg");
         let selectModelo = document.getElementById("selectModelo");
-
+        let addToCartBtn = document.getElementById("addToCartBtn");
+    
         thumbs.onclick = function(event) {
             let thumbnail = event.target.closest('img');
-
+    
             if (!thumbnail) return;
-
+    
             showThumbnail(thumbnail.src, thumbnail.parentElement.title);
-
+    
             event.preventDefault();
         };
-
+    
         // Agregar event listener a los círculos de color
         document.querySelectorAll('.color-circle').forEach(circle => {
             circle.addEventListener('click', function() {
                 const color = this.dataset.color;
                 cambiarColorImagen(color);
+                producto.color = color; // Agregar el color seleccionado al objeto del producto
             });
         });
-
+    
         selectModelo.addEventListener('change', function() {
             const selectedModelo = selectModelo.value;
             // Buscar el producto correspondiente al modelo seleccionado y que también sea de la misma categoría
             const productoSeleccionado = productos.find(p => p.modelo === selectedModelo && p.idCategoria === document.getElementById("categoria").innerText.toLowerCase());
-
+    
             if (productoSeleccionado) {
                 // Obtener la ID del producto seleccionado
                 const idProductoSeleccionado = productoSeleccionado.id;
@@ -134,7 +136,30 @@ document.addEventListener("DOMContentLoaded", async function() {
                 window.location.href = `../producto.html?idProducto=${idProductoSeleccionado}`;
             }
         });
-
+    
+        addToCartBtn.addEventListener('click', function() {
+            // Obtener el carrito de localStorage o crear uno si no existe
+            let cart = localStorage.getItem('cart');
+            if (!cart) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+    
+            // Agregar información adicional al objeto del producto
+            producto.imagen = largeImg.src; // Agregar la URL de la imagen del producto
+            producto.nombre = document.querySelector('h5').innerText; // Agregar el nombre del producto
+    
+            // Agregar el producto al carrito
+            cart.push(producto);
+    
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Notificar al usuario que el producto se agregó al carrito
+            alert('¡El producto se ha añadido al carrito!');
+        });
+    
         function showThumbnail(src, title) {
             largeImg.src = src;
             largeImg.alt = title;
@@ -148,9 +173,9 @@ document.addEventListener("DOMContentLoaded", async function() {
             imagenesChicas.forEach(imagen => {
                 imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
             });
-
+    
         }
-
+    
         function getColorRotation(color) {
             // Definir un mapeo de colores y sus rotaciones de matiz asociadas
             const colorRotations = {
@@ -162,6 +187,6 @@ document.addEventListener("DOMContentLoaded", async function() {
             // Devolver la rotación de matiz asociada al color
             return colorRotations[color] || 0; // Si el color no está en el mapeo, no se aplica ninguna rotación
         }
-
     }
+    
 });
