@@ -176,5 +176,6 @@ document.addEventListener("DOMContentLoaded", async function() {
             window.location.href = 'nuestrasFundas.html';
         }
     }
+    
 
 });
