@@ -6,12 +6,12 @@
 }
 
 body {
-  background: #395e4a;
+  background: linear-gradient(to right, #395e4a, #ffffff);
   overflow: hidden;
 }
 
 ::selection {
-  background: rgba(26, 188, 156, 0.3);
+  background: rgba(77, 104, 98, 0.3);
 }
 
 .container {
@@ -35,8 +35,8 @@ body {
   font-size: 30px;
   font-weight: 600;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .wrapper form {
@@ -79,8 +79,8 @@ form .row input::placeholder {
   border: 1px solid #395e4a;
   border-radius: 5px 0 0 5px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .wrapper form .pass {

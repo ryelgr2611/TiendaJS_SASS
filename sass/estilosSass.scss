@@ -6,7 +6,7 @@
 .footer {
   position: relative;
   width: 100%;
-  background: linear-gradient(to bottom, #fff, $primary-color);
+  background: linear-gradient(to bottom, #F3F3F3, $primary-color);
   min-height: 100px;
   padding: 20px 50px;
   display: flex;
@@ -14,19 +14,17 @@
   align-items: center;
   flex-direction: column;
 
-  .social-icon,
-  .menu {
+  .social-icon,.menu {
     @include flex-center;
     margin: 10px 0;
     flex-wrap: wrap;
   }
 
-  .social-icon__item,
-  .menu__item {
+  .social-icon-item,.menu-item {
     list-style: none;
   }
 
-  .social-icon__link {
+  .social-icon-link {
     font-size: 2rem;
     color: #fff;
     margin: 0 10px;
@@ -34,11 +32,11 @@
     transition: 0.5s;
 
     &:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
     }
   }
 
-  .menu__link {
+  .menu-link {
     font-size: 1.2rem;
     color: #fff;
     margin: 0 10px;
@@ -58,25 +56,8 @@
     margin: 15px 0 10px 0;
     font-size: 1rem;
     font-weight: 300;
+    
   }
 
 }
 
-// Keyframes
-@keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-position-x: 0px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-position-x: 0px;
-  }
-}
