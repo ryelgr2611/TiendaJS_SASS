@@ -1,0 +1,38 @@
+.main .contenedor .fila {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .contenedor .fila .columna {
+  width: 50%;
+  padding: 20px;
+}
+.main .contenedor .fila .columna h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.main .contenedor .fila .columna p {
+  font-size: 1rem;
+}
+.main .contenedor .fila .columna img {
+  max-width: 100%;
+  height: auto;
+  align-self: center;
+}
+.main .contenedor .fila #invert {
+  order: -1;
+}
+@media (max-width: 992px) {
+  .main .contenedor .fila {
+    flex-direction: column;
+  }
+  .main .contenedor .fila .columna {
+    width: 100%;
+  }
+  .main .contenedor .fila #invert {
+    order: 0;
+  }
+}
+
+/*# sourceMappingURL=sassAbout.css.map */

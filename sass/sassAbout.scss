@@ -1,0 +1,53 @@
+@import 'partials/breakpoints';
+@import 'partials/functions';
+@import 'partials/mixins';
+@import 'partials/variables';
+
+.main {
+    .contenedor {
+      .fila {
+        @include flex-center;
+  
+        .columna {
+          width: $column-width;
+          padding: 20px;
+  
+          h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+          }
+  
+          p {
+            font-size: 1rem;
+          }
+  
+          img {
+            max-width: 100%;
+            height: auto;
+            align-self: center;
+            
+          }
+        }
+        #invert{
+            order: -1;
+        }
+      }
+    }
+  
+    @media (max-width: $breakpoint-lg) {
+      .contenedor {
+        .fila {
+          flex-direction: column;
+  
+          .columna {
+            width: 100%;
+          }
+          #invert{
+            order: 0;
+        }
+        }
+      }
+    }
+  }
+  

@@ -13,9 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/estilosSass.css">
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg m-0 sticky-top ">
+    <nav class="navbar navbar-expand-lg m-0 sticky-lg-top ">
         <div class="container-fluid m-0">
             <!-- Logo o marca -->
             <a class="navbar-brand ms-1 " href="index.html">
@@ -29,25 +31,35 @@
             </button>
             <!-- Contenedor del menú -->
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <!-- Elementos de menú -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                    <a class="nav-link" href="about.html">Sobre Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dispositivos</a>
+                    <div class="dropdown"> <!-- Agregamos un contenedor dropdown -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dispositivosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dispositivos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dispositivosDropdown"> <!-- Submenú -->
+                            <div class="row"  id="contDispositivos">
+
+                            </div>
+                            <!-- Puedes añadir más elementos del submenú según sea necesario -->
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="nuestrasFundas.html">Nuestras Fundas</a>
                 </li>
                 <li class="nav-item ">
-                <a class="nav-link" href="#">Marcas Colaboradoras</a>
+                <a class="nav-link" href="contacto.html">Contacto</a>
                 </li>
                 
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="login.html">
                         <i class="bi bi-door-open-fill"></i>
                         Iniciar Sesión
                     </a>
@@ -146,8 +158,38 @@
             </li>
         </ul>
     </nav>
+    <!-- Footer -->
+    <footer class="footer mt-5 ">
+        <ul class="logo">
+            <li class="social-icon"><a href=""><img src="img/logos/logoNav.png" alt=""></a></li>
+        </ul>
+        <ul class="social-icon">
+            <li class="social-icon"><a class="social-icon-link" href="#">
+                <i class="bi bi-facebook"></i>
+            </a></li>
+            <li class="social-icon"><a class="social-icon-link" href="#">
+                <i class="bi bi-twitter"></i>
+            </a></li>
+            <li class="social-icon"><a class="social-icon-link" href="#">
+                <i class="bi bi-linkedin"></i>
+            </a></li>
+            <li class="social-icon"><a class="social-icon-link" href="#">
+                <i class="bi bi-instagram"></i>
+            </a></li>
+        </ul>
+        
+        <ul class="menu">
+          <li class="menu"><a class="menu-link" href="index.html">Inicio</a></li>
+          <li class="menu"><a class="menu-link" href="about.html">Sobre Nosotros</a></li>
+          <li class="menu"><a class="menu-link" href="nuestrasFundas.html">Nuestras Fundas</a></li>
+          <li class="menu"><a class="menu-link" href="contacto.html">Contacto</a></li>
     
+        </ul>
+        <p class="text-center ">&copy;2024 Raul Yelamos | Todos los derechos reservados</p>
+      </footer>
 
     <script src="js/categoriasJS.js"></script>
+    <script src="js/scriptDispositivos.js"></script>
+
 </body>
 </html>

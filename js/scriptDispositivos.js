@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener el elemento del submenú de dispositivos
-    const dispositivosSubMenu = document.querySelector('.dropdown-menu');
+    const dispositivosSubMenu = document.getElementById("contDispositivos");
 
     // Realizar una solicitud para obtener el archivo JSON de los productos
     fetch('js/products.json')
@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para generar el contenido del elemento del submenú para un modelo de dispositivo
     function generarContenidoSubMenu(modelo) {
         return `
-            <li><a class="dropdown-item" href="../nuestrasFundas.html?modelo=${modelo}">${modelo}</a></li>
+            <div class="col-4">
+                <a class="dropdown-item" href="../nuestrasFundas.html?modelo=${modelo}">${modelo}</a>
+            </div>
         `;
     }
 });

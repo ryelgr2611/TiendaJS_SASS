@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             })
         }
 
+        const modelo = new URLSearchParams(window.location.search).get('modelo');
         // Procesar los modelos de iPhone
         const modelos = [...new Set(productosResponse.map(producto => producto.modelo))].sort();
         modelos.forEach(modelo => {
@@ -48,6 +49,12 @@ document.addEventListener("DOMContentLoaded", async function() {
             option.textContent = modelo;
             selectModelo.appendChild(option);
         });
+
+        // Si hay un modelo especificado en la URL, seleccionarlo en el select
+         if (modelo) {
+            selectModelo.value = modelo;
+            filtrarProductosPorModelo(productosResponse,idTipo);
+        }
 
         // Agregar event listener para el cambio de opción en el select de modelo
         selectModelo.addEventListener('change', function() {
@@ -114,6 +121,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     function filtrarProductosPorModelo(productosResponse,idTipo) {
         const modeloSeleccionado = selectModelo.value;
         
+        // Verificar si no hay modelo seleccionado
+    if (modeloSeleccionado==="nada") {
+        // Mostrar todos los productos sin filtrar
+        window.location.href = 'nuestrasFundas.html';
+    }
         // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
         let productosFiltrados;
         if (idTipo) {
