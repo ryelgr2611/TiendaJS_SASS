@@ -4,15 +4,22 @@
 @import 'partials/variables';
 
 .footer {
-  position: relative;
   width: 100%;
   background: linear-gradient(to bottom, #F3F3F3, $primary-color);
   min-height: 100px;
   padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   flex-direction: column;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    font-weight: 300;
+    color: #1b1f1c;
+}
+
 
   .social-icon,.menu {
     @include flex-center;

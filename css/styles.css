@@ -128,15 +128,6 @@ nav {
     color: #20883f;
 }
 
-.footer a {
-    text-decoration: none;
-    color: black;
-}
-
-.footer a:hover {
-    font-weight: 300;
-    color: #1b1f1c;
-}
 
 .fundas {
     display: flex;

@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <div class="col-md-6">
                         <div class="text-center">
                             <div id="capaImagenProducto" class="">
-                                <p><img id="largeImg" src="${producto.imagenes[0]}" alt="Imagen grande"></p>
+                                <p><img id="largeImg" src="${producto.imagenes[0]}" alt="Imagen grande" class="img-fluid"></p>
                                 <ul id="thumbs" class="text-center ">
                                     ${producto.imagenes?.slice(1).map((imagen, index) => `
                                         <li><a href="#" title="Imagen ${index + 2}"><img src="${imagen}" class="miniImg"></a></li>
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                 <p>${producto.descripcion}</p>
                             </div>
                             <hr>
-                            <div class="row justify-content-end">
+                            <div class="row justify-content-end mb-5">
                                 <div class="col-9">
                                     <button type="button" class="btn btn-dark  w-100" id="addToCartBtn">
                                         <i class="bi-cart3">
