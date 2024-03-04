@@ -101,6 +101,57 @@ nav {
     font-weight: bolder;
 }
 
+.futuro{
+    background-image: url(../img/backgroundNew.png);
+    background-size: cover;
+    width: 100%;
+    height: 800px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.futuro h2,.futuro h5{
+    margin-left: 15rem;
+    text-shadow: 2px 2px #000000;
+}
+.futuro button{
+    margin-left: 15rem;
+    background-color: white;
+    color: black;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 black;
+}
+    
+.futuro button:hover{
+    transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+.futuro button:active{
+    transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 black;
+}
+.futuro h5{
+    max-width: 50%;
+}
+
+#contNews{
+    background: linear-gradient(to bottom, #9991884d, #F3F3F3);
+}
+.input_group{
+    display: flex;
+}
+.form-control {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ESILOS NUESTRASFUNDAS */
 .card:hover {
     transform: translateY(-10px); /* Mover la carta hacia arriba */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
@@ -112,7 +163,7 @@ nav {
     text-align: center;
 }
 
-/* Definir el estilo para las imágenes dentro de las tarjetas */
+
 .card-img-top {
     width: 100%;
     height: auto;
@@ -178,6 +229,82 @@ nav {
     color: #20883f;
 }
 
+/* PAGINACION */
+.pagination-outer{ text-align: center; }
+.pagination{
+    background-color: #fff;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px 15px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    display: inline-flex;
+    position: relative;
+    z-index: 1;
+}
+.pagination li a.page-link{
+    color: #555;
+    background: transparent;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 35px;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    border-radius: 0;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease 0.1s;
+}
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link{
+    color: #000;
+    background: #f5f5f5;
+    box-shadow: 0 0 10px -2px rgba(0,0,0,0.5);
+}
+.pagination li:first-child a.page-link,
+.pagination li:last-child a.page-link{
+    width: auto;
+}
+.pagination li:first-child a.page-link:hover,
+.pagination li:last-child a.page-link:hover{
+    background-color: transparent;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+}
+.pagination li a.page-link:before{
+    content: '';
+    background-color: #000;
+    height: 150%;
+    width: 5px;
+    transform-origin: left bottom;
+    position: absolute;
+    left: -5px;
+    bottom: 0;
+    transition: all 0.3s ease 0s;
+}
+.pagination li.active a.page-link:before,
+.pagination li a.page-link:hover:before{
+    transform: rotate(90deg);
+    bottom: 2px;
+}
+.pagination li:first-child a.page-link:before,
+.pagination li:last-child a.page-link:before{
+    display: none;
+}
+@media only screen and (max-width: 480px){
+    .pagination{
+        font-size: 0;
+        display: block;
+    }
+    .pagination li{
+        display: inline-block;
+        margin: 0 0 10px;
+    }
+}
+
 /* estilos producto */
 #thumbs a {
     padding: 3px;
@@ -221,55 +348,7 @@ nav {
     border-color: #ccc;
   }
 
-.futuro{
-    background-image: url(../img/backgroundNew.png);
-    background-size: cover;
-    width: 100%;
-    height: 800px;
-    background-position: center;
-    display: flex;
-    align-items: center;
-}
 
-.futuro h2,.futuro h5{
-    margin-left: 15rem;
-    text-shadow: 2px 2px #000000;
-}
-.futuro button{
-    margin-left: 15rem;
-    background-color: white;
-    color: black;
-    border-radius: 10em;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 1em 2em;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid black;
-    box-shadow: 0 0 0 0 black;
-}
-    
-.futuro button:hover{
-    transform: translateY(-4px) translateX(-2px);
-  box-shadow: 2px 5px 0 0 black;
-}
-.futuro button:active{
-    transform: translateY(2px) translateX(1px);
-  box-shadow: 0 0 0 0 black;
-}
-.futuro h5{
-    max-width: 50%;
-}
-
-#contNews{
-    background: linear-gradient(to bottom, #9991884d, #F3F3F3);
-}
-.input_group{
-    display: flex;
-}
-.form-control {
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
 
 .form-control:hover{
     border-color: #20883f; 
@@ -353,7 +432,7 @@ nav {
         
     }
     .futuro{
-        background-position: 1400px;
+        background-position: 1300px;
     }
 }
 @media (max-width: 550px) {
@@ -364,4 +443,8 @@ nav {
         flex-direction: column;
         
     }
+    .futuro{
+        background-position: 1150px;
+    }
 }
+

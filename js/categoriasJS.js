@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const container = document.querySelector('.container');
     const selectFundas = document.getElementById('selectFundas');
     const selectModelo = document.getElementById('selectModelo');
+    const selectSort = document.getElementById('selectOrdena');
     const fundas = document.querySelector('.grid-container');
     const inputBusqueda = document.getElementById('inputBusqueda');
 
@@ -33,10 +34,12 @@ document.addEventListener("DOMContentLoaded", async function() {
             const productosFiltrados = productosResponse.filter(producto => producto.idCategoria === idTipo);
             productosFiltrados.forEach(producto => {
                 cardMaker(producto);
+                paginaProductos(productosFiltrados);
             });
         } else {
             productosResponse.forEach(producto => {
                 cardMaker(producto);
+                paginaProductos(productosResponse);
             })
         }
 
@@ -54,6 +57,7 @@ document.addEventListener("DOMContentLoaded", async function() {
          if (modelo) {
             selectModelo.value = modelo;
             filtrarProductosPorModelo(productosResponse,idTipo);
+
         }
 
         // Agregar event listener para el cambio de opción en el select de modelo
@@ -66,15 +70,117 @@ document.addEventListener("DOMContentLoaded", async function() {
             redirigirSegunCategoria(categoriasResponse);
         });
 
+        // Agregar event listener para la ordenacion
+        selectSort.addEventListener('change', function() {
+            const tipoOrden = selectSort.value;
+            ordenarProductos(productosResponse, tipoOrden);
+        });
+
         // Agregar event listener para el input de búsqueda
         inputBusqueda.addEventListener('input', function() {
             const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
             const productosFiltrados = filtrarProductosPorBusqueda(productosResponse, textoBusqueda);
-            renderizarProductos(productosFiltrados);
+            paginaProductos(productosFiltrados);
+            
         });
+
+        
 
     } catch (error) {
         console.error('Error al obtener los datos:', error);
+    }
+
+    function paginaProductos(productos) {
+        const productosPorPagina = 8; // Número de productos que deseas mostrar por página
+        let paginaActual = 1; // Página actual (inicialmente la primera página)
+
+        // Función para calcular el número total de páginas
+        function calcularTotalPaginas() {
+            return Math.ceil(productos.length / productosPorPagina);
+        }
+
+        // Función para mostrar los productos de la página actual
+        function mostrarProductosPorPagina() {
+            const inicio = (paginaActual - 1) * productosPorPagina;
+            const fin = inicio + productosPorPagina;
+            const productosPagina = productos.slice(inicio, fin);
+            renderizarProductos(productosPagina);
+        }
+
+        // Función para renderizar la paginación
+        function renderizarPaginacion() {
+            const totalPaginas = calcularTotalPaginas();
+        
+            // Crear elementos para la paginación
+            const paginacionContainer = document.querySelector('.paginacion');
+            paginacionContainer.innerHTML = '';
+        
+            // Botón "Anterior"
+            const botonAnterior = document.createElement('li');
+            botonAnterior.classList.add('page-item');
+            const linkAnterior = document.createElement('a');
+            linkAnterior.classList.add('page-link');
+            linkAnterior.href = '#';
+            linkAnterior.innerHTML = '&laquo;'; // Símbolo de "Anterior"
+            botonAnterior.appendChild(linkAnterior);
+            paginacionContainer.appendChild(botonAnterior);
+        
+            linkAnterior.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (paginaActual > 1) {
+                    paginaActual--;
+                    mostrarProductosPorPagina();
+                }
+            });
+        
+            // Iterar sobre todas las páginas
+            for (let i = 1; i <= totalPaginas; i++) {
+                const itemPagina = document.createElement('li');
+                itemPagina.classList.add('page-item');
+        
+                // Si la página actual es la iteración actual, resáltala
+                if (i === paginaActual) {
+                    itemPagina.classList.add('active');
+                }
+        
+                const linkPagina = document.createElement('a');
+                linkPagina.classList.add('page-link');
+                linkPagina.href = '#';
+                linkPagina.textContent = i;
+                itemPagina.appendChild(linkPagina);
+                paginacionContainer.appendChild(itemPagina);
+        
+                // Agregar evento click para cambiar de página
+                linkPagina.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    paginaActual = i;
+                    mostrarProductosPorPagina();
+                    renderizarPaginacion(); // Volver a renderizar la paginación para actualizar el estado activo
+                });
+            }
+        
+            // Botón "Siguiente"
+            const botonSiguiente = document.createElement('li');
+            botonSiguiente.classList.add('page-item');
+            const linkSiguiente = document.createElement('a');
+            linkSiguiente.classList.add('page-link');
+            linkSiguiente.href = '#';
+            linkSiguiente.innerHTML = '&raquo;'; // Símbolo de "Siguiente"
+            botonSiguiente.appendChild(linkSiguiente);
+            paginacionContainer.appendChild(botonSiguiente);
+        
+            linkSiguiente.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (paginaActual < totalPaginas) {
+                    paginaActual++;
+                    mostrarProductosPorPagina();
+                    renderizarPaginacion(); // Volver a renderizar la paginación para actualizar el estado activo
+                }
+            });
+        }
+        // Mostrar productos y paginación al cargar la página
+        mostrarProductosPorPagina();
+        renderizarPaginacion();
     }
 
     function renderizarCategoria(categoria) {
@@ -104,7 +210,12 @@ document.addEventListener("DOMContentLoaded", async function() {
         <a href="../producto.html?idProducto=${producto.id}" class="card-link text-decoration-none">
             <div class="cartaProducto">
                 <img src="${producto.imagenes[0]}" alt="${producto.nombre}" style="${producto.colores ? 'filter: hue-rotate(' + getHueRotation() + 'deg);' : ''}">
-                <p class="text-center">${producto.modelo}</p>
+                <p class="text-center">
+                    ${producto.modelo} 
+                <span class="text-secondary  ms-3 ">${producto.precio}€</span>
+                </p>
+                <p class="text-dark ms-3 text-center  ">${producto.likes} <i class="bi bi-suit-heart-fill text-danger "></i></sp>
+                
             </div>
         </a>
         `;
@@ -122,10 +233,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         const modeloSeleccionado = selectModelo.value;
         
         // Verificar si no hay modelo seleccionado
-    if (modeloSeleccionado==="nada") {
-        // Mostrar todos los productos sin filtrar
-        window.location.href = 'nuestrasFundas.html';
-    }
+        if (modeloSeleccionado==="nada") {
+            // Mostrar todos los productos sin filtrar
+            window.location.href = 'nuestrasFundas.html';
+        }
         // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
         let productosFiltrados;
         if (idTipo) {
@@ -141,6 +252,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         productosFiltrados.forEach(producto => {
             cardMaker(producto);
         });
+        paginaProductos(productosFiltrados);
     }
 
     function filtrarProductosPorBusqueda(productos, texto) {
@@ -189,5 +301,30 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
     
-
+    function ordenarProductos(productos, tipoOrden) {
+        // Definimos la función de comparación según el tipo de orden
+        let comparador;
+        switch (tipoOrden) {
+            case 'precioAscendente':
+                comparador = (a, b) => parseFloat(a.precio) - parseFloat(b.precio);
+                break;
+            case 'precioDescendente':
+                comparador = (a, b) => parseFloat(b.precio) - parseFloat(a.precio);
+                break;
+            case 'likes':
+                comparador = (a, b) => parseFloat(b.likes)- parseFloat(a.likes);
+                break;
+            default:
+                // Por defecto, no se hace ninguna ordenación
+                return;
+        }
+    
+        // Utilizamos el método sort() con el comparador definido
+        productos.sort(comparador);
+    
+        // Renderizamos los productos ordenados
+        paginaProductos(productos);
+        
+    }
+    
 });
