@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <div class="col-9">
                                     <p class="card-title fw-bold">${producto.nombre}</p>
                                     <p class="card-text">${producto.precio}€</p>
-                                    <p class="card-text text-success">Recíbelo el ${producto.fechaEntrega}</p>
+                                    <p class="card-text text-success"> ${producto.modelo}</p>
                                 </div>
                                 <div class="col-lg-3 col-12 d-flex justify-content-end align-items-center">
                                     <input min="1" name="quantity" value="${producto.cantidad}" type="number" class="form-control form-control-sm ms-3" data-index="${index}" />
