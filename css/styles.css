@@ -51,7 +51,7 @@ nav {
 .card {
     height: 100%; /* Establecer una altura fija para las cartas */
     width: 20rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .card p {
@@ -102,7 +102,7 @@ nav {
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Mover la carta hacia arriba */
+    transform: translateY(-10px); /* Mover la carta hacia arriba */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
     font-weight: bold;
     color: #20883f;
@@ -158,6 +158,7 @@ nav {
     border-radius: 5px;
     overflow: hidden;
     color: #000000;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .cartaProducto img {
@@ -172,7 +173,7 @@ nav {
 }
 
 .cartaProducto:hover {
-    transform: translateY(-5px); /* Mover la carta hacia arriba */
+    transform: scale(1.1); /* Mover la carta hacia arriba */
     font-weight: bold;
     color: #20883f;
 }
@@ -226,8 +227,33 @@ nav {
     width: 100%;
     height: 800px;
     background-position: center;
+    display: flex;
+    align-items: center;
 }
 
+.futuro h2,.futuro h5{
+    margin-left: 15rem;
+    text-shadow: 2px 2px #000000;
+}
+
+#contNews{
+    background: linear-gradient(to bottom, #9991884d, #F3F3F3);
+}
+.input_group{
+    display: flex;
+}
+.form-control {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:hover{
+    border-color: #20883f; 
+    box-shadow: 0 0 0 0.25rem rgba(32, 136, 63, 0.25);
+}
+.form-control:focus {
+    border-color: #19612e; 
+    box-shadow: 0 0 0 0.25rem rgba(32, 136, 63, 0.692);
+}
 /* Media queries */
 @media (width <=1200px) {
     .card {
