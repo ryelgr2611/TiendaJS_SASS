@@ -3,7 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
+
+@mixin flexContacto{
+  display: flex;
+  flex-direction: column;
+}
 
 @mixin breakpoint($point) {
   @media (min-width: $point) {

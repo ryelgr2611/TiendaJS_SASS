@@ -1,0 +1,118 @@
+
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/functions';
+@import 'partials/breakpoints';
+
+.contenedor {
+  @include flexContacto;
+  align-items: center;
+  width: 100%;
+  img {
+    filter: drop-shadow(0 0 2px $secondary-color);
+    animation: shadow-animation 1s infinite alternate; /* Animación de la sombra */
+}
+
+@keyframes shadow-animation {
+    0% {
+        filter: drop-shadow(0 0 2px $secondary-color);
+    }
+    100% {
+        filter: drop-shadow(10px 10px 10px $secondary-color); /* Cambia el tamaño de la sombra al 10px */
+    }
+}
+
+
+  .formulario {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 100px 0px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    h1 {
+      color: $secondary-color;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 3px 0 5px $secondary-color;
+    }
+
+    form {
+      @include flexContacto;
+
+      div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        input, textarea {
+          background-color: #EEEEEE;
+          border: none;
+          border-radius: 20px;
+          padding: 15px;
+          box-shadow: 0 5px 5px $secondary-color;
+
+        }
+
+        input[type="text"],
+        input[type="email"] {
+          height: 50px;
+        }
+
+        textarea {
+          grid-column: 1 / -1;
+          height: 150px;
+        }
+      }
+
+      .aceptacion-politica {
+        @include flex-center;
+
+        input[type="checkbox"] {
+          margin-right: 10px;
+          background-color: $primary-color;
+          box-shadow: 0 0 0px rgb(0, 0, 0);
+        }
+        
+      }
+
+      .informacion-adicional {
+        font-size: 15px;
+        margin-top: 10px;
+        color: $primary-color;
+        grid-template-columns: none;
+      }
+
+      .enviar {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+
+        input[type="submit"] {
+          background-color: $secondary-color;
+          color: #ffffff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.5s ease-in, transform 0.5s ease;
+
+          &:hover {
+            background-color: $primary-color;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .contenedor .formulario form div {
+    grid-template-columns: 1fr !important; // Forzar a una sola columna en pequeñas pantallas
+    gap: 10px; // Reducir el espacio entre campos para ajustarse mejor
+
+  }
+}

@@ -1,0 +1,101 @@
+@charset "UTF-8";
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.contenedor img {
+  filter: drop-shadow(0 0 2px #68b68c);
+  animation: shadow-animation 1s infinite alternate; /* Animación de la sombra */
+}
+@keyframes shadow-animation {
+  0% {
+    filter: drop-shadow(0 0 2px #68b68c);
+  }
+  100% {
+    filter: drop-shadow(10px 10px 10px #68b68c); /* Cambia el tamaño de la sombra al 10px */
+  }
+}
+.contenedor .formulario {
+  width: 80%;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 100px 0px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.contenedor .formulario h1 {
+  color: #68b68c;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 3px 0 5px #68b68c;
+}
+.contenedor .formulario form {
+  display: flex;
+  flex-direction: column;
+}
+.contenedor .formulario form div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.contenedor .formulario form div input, .contenedor .formulario form div textarea {
+  background-color: #EEEEEE;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 5px 5px #68b68c;
+}
+.contenedor .formulario form div input[type=text],
+.contenedor .formulario form div input[type=email] {
+  height: 50px;
+}
+.contenedor .formulario form div textarea {
+  grid-column: 1/-1;
+  height: 150px;
+}
+.contenedor .formulario form .aceptacion-politica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor .formulario form .aceptacion-politica input[type=checkbox] {
+  margin-right: 10px;
+  background-color: #395e4a;
+  box-shadow: 0 0 0px rgb(0, 0, 0);
+}
+.contenedor .formulario form .informacion-adicional {
+  font-size: 15px;
+  margin-top: 10px;
+  color: #395e4a;
+  grid-template-columns: none;
+}
+.contenedor .formulario form .enviar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.contenedor .formulario form .enviar input[type=submit] {
+  background-color: #68b68c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in, transform 0.5s ease;
+}
+.contenedor .formulario form .enviar input[type=submit]:hover {
+  background-color: #395e4a;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .contenedor .formulario form div {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+}
+
+/*# sourceMappingURL=sassContacto.css.map */
