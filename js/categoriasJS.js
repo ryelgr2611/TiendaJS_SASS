@@ -83,7 +83,13 @@ document.addEventListener("DOMContentLoaded", async function() {
         // Agregar event listener para la ordenacion
         selectSort.addEventListener('change', function() {
             const tipoOrden = selectSort.value;
-            ordenarProductos(productosFiltrados, tipoOrden);
+            if(productosFiltrados.length===0){
+                ordenarProductos(productosResponse, tipoOrden);
+            }
+            else{
+                ordenarProductos(productosFiltrados, tipoOrden);
+
+            }
             
         });
 
@@ -91,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         inputBusqueda.addEventListener('input', function() {
             const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
             if(productosFiltrados.length===0){
-            paginaProductos(filtrarProductosPorBusqueda(productosResponse, textoBusqueda));
+                paginaProductos(filtrarProductosPorBusqueda(productosResponse, textoBusqueda));
             }
             else{
                 paginaProductos(filtrarProductosPorBusqueda(productosFiltrados, textoBusqueda));
