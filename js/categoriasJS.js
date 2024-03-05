@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const selectSort = document.getElementById('selectOrdena');
     const fundas = document.querySelector('.grid-container');
     const inputBusqueda = document.getElementById('inputBusqueda');
+    let productosFiltrados=[];
 
     try {
         const [categoriasResponse, productosResponse] = await Promise.all([
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             selectFundas.appendChild(option);
         });
 
-        const idTipo = new URLSearchParams(window.location.search).get('tipo');
+        let idTipo = new URLSearchParams(window.location.search).get('tipo');
 
         if (idTipo) {
             selectFundas.value = idTipo;
@@ -31,10 +32,11 @@ document.addEventListener("DOMContentLoaded", async function() {
                 renderizarCategoria(categoriaSeleccionada);
             }
             // Filtrar productos por el tipo seleccionado y generar cartas
-            const productosFiltrados = productosResponse.filter(producto => producto.idCategoria === idTipo);
+            productosFiltrados = productosResponse.filter(producto => producto.idCategoria === idTipo);
             productosFiltrados.forEach(producto => {
                 cardMaker(producto);
                 paginaProductos(productosFiltrados);
+                
             });
         } else {
             productosResponse.forEach(producto => {
@@ -54,15 +56,23 @@ document.addEventListener("DOMContentLoaded", async function() {
         });
 
         // Si hay un modelo especificado en la URL, seleccionarlo en el select
-         if (modelo) {
+        if (modelo) {
             selectModelo.value = modelo;
-            filtrarProductosPorModelo(productosResponse,idTipo);
-
+            if(productosFiltrados.length===0){
+                productosFiltrados=filtrarProductosPorModelo(productosResponse,modelo);
+               }else
+                productosFiltrados=filtrarProductosPorModelo(productosFiltrados,modelo);
+                paginaProductos(productosFiltrados);
         }
+        
 
         // Agregar event listener para el cambio de opción en el select de modelo
         selectModelo.addEventListener('change', function() {
-            filtrarProductosPorModelo(productosResponse,idTipo);
+           if(productosFiltrados.length===0){
+            productosFiltrados=filtrarProductosPorModelo(productosResponse,selectModelo.value);
+           }else
+            productosFiltrados=filtrarProductosPorModelo(productosFiltrados,selectModelo.value);
+            paginaProductos(productosFiltrados);
         });
 
         // Agregar event listener para el cambio de opción en el select de tipo de fundas
@@ -73,15 +83,20 @@ document.addEventListener("DOMContentLoaded", async function() {
         // Agregar event listener para la ordenacion
         selectSort.addEventListener('change', function() {
             const tipoOrden = selectSort.value;
-            ordenarProductos(productosResponse, tipoOrden);
+            ordenarProductos(productosFiltrados, tipoOrden);
+            
         });
 
         // Agregar event listener para el input de búsqueda
         inputBusqueda.addEventListener('input', function() {
             const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
-            const productosFiltrados = filtrarProductosPorBusqueda(productosResponse, textoBusqueda);
-            paginaProductos(productosFiltrados);
-            
+            if(productosFiltrados.length===0){
+            paginaProductos(filtrarProductosPorBusqueda(productosResponse, textoBusqueda));
+            }
+            else{
+                paginaProductos(filtrarProductosPorBusqueda(productosFiltrados, textoBusqueda));
+
+            }
         });
 
         
@@ -130,6 +145,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 if (paginaActual > 1) {
                     paginaActual--;
                     mostrarProductosPorPagina();
+                    renderizarPaginacion();
                 }
             });
         
@@ -137,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             for (let i = 1; i <= totalPaginas; i++) {
                 const itemPagina = document.createElement('li');
                 itemPagina.classList.add('page-item');
-        
+                
                 // Si la página actual es la iteración actual, resáltala
                 if (i === paginaActual) {
                     itemPagina.classList.add('active');
@@ -229,30 +245,17 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     
 
-    function filtrarProductosPorModelo(productosResponse,idTipo) {
-        const modeloSeleccionado = selectModelo.value;
+    function filtrarProductosPorModelo(productosResponse,valorModelo) {
         
         // Verificar si no hay modelo seleccionado
-        if (modeloSeleccionado==="nada") {
+        if (valorModelo==="nada") {
             // Mostrar todos los productos sin filtrar
             window.location.href = 'nuestrasFundas.html';
         }
         // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
-        let productosFiltrados;
-        if (idTipo) {
-            productosFiltrados = productosResponse.filter(producto => {
-                return producto.modelo === modeloSeleccionado && producto.idCategoria === idTipo;
-            });
-        } else {
-            productosFiltrados = productosResponse.filter(producto => producto.modelo === modeloSeleccionado);
-        }
-    
-        // Limpiar las cartas existentes antes de agregar las nuevas
-        fundas.innerHTML = '';
-        productosFiltrados.forEach(producto => {
-            cardMaker(producto);
-        });
-        paginaProductos(productosFiltrados);
+       
+        return productosResponse.filter(producto => producto.modelo === valorModelo);
+        
     }
 
     function filtrarProductosPorBusqueda(productos, texto) {
