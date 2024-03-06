@@ -1,65 +1,72 @@
+import { getColorRotation } from "./funciones.js";
+
 document.addEventListener("DOMContentLoaded", function() {
     const carritoContainer = document.querySelector('.col-lg-8');
     const subtotalElement = document.getElementById("subtotal");
     const totalElement = document.getElementById("total");
 
-    // Obtener el carrito del localStorage
+    // obtenemos el carrito del localstorage
     let carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Rellenar el carrito con los productos almacenados
+    // rellenamos el carrito con los productos almacenados
     llenarCarrito(carrito);
 
-    // Calcular y mostrar el subtotal y total del carrito
+    // calculamos y mostramos el subtotal y total del carrito
     calcularSubtotalYTotal(carrito);
 
-    // Agregar event listener al cambio en la cantidad de productos
+    // agregamos event listener al cambio en la cantidad de productos
     carritoContainer.addEventListener('input', function(event) {
         if (event.target && event.target.name === 'quantity') {
             const index = event.target.dataset.index;
             const newQuantity = parseInt(event.target.value);
             if (!isNaN(newQuantity) && newQuantity >= 1) {
                 carrito[index].cantidad = newQuantity;
-                // Actualizar el carrito en el localStorage
+                // actualizamos el carrito en el localstorage
                 localStorage.setItem('cart', JSON.stringify(carrito));
-                // Recalcular subtotal y total
+                // recalculamos subtotal y total
                 calcularSubtotalYTotal(carrito);
             } else {
-                // Si el valor ingresado no es válido, restaurar el valor anterior
+                // si el valor ingresado no es válido, restauramos el valor anterior
                 event.target.value = carrito[index].cantidad;
             }
         }
     });
-    
-
 
     function llenarCarrito(carrito) {
-        // Limpiar el contenido previo del carrito
+        // limpiamos el contenido previo del carrito
         carritoContainer.innerHTML = '';
 
-        // Iterar sobre los productos en el carrito y agregarlos al DOM
+        // si no hay productos que nos lo muestre con un mensajito
+        if (carrito.length === 0) 
+        carritoContainer.innerHTML =  `
+            <h1 class="text-dark mt-4">No hay productos en su cesta</h1>
+            <img src=img/logos/carritoSAD.png>
+            `;
+
+        // iteramos sobre los productos en el carrito y los agregamos
         carrito.forEach((producto, index) => {
-            // Generar el HTML del producto
+            // generamos el html del producto
             const productoHTML = generarProductoHTML(producto, index);
             carritoContainer.innerHTML += productoHTML;
-        // Obtener el botón de eliminar del producto actual
+        // obtenemos el botón de eliminar del producto actual
         const btnEliminar = carritoContainer.querySelector(`#btnEliminar${index}`);
         
-        // Obtener todas las imágenes del producto y aplicar el filtro de color a cada una
+        // obtenemos todas las imágenes del producto y aplicamos el filtro de color a cada una
         const imagenesProducto = carritoContainer.querySelectorAll(".producto-imagen");
         imagenesProducto.forEach(imagen => {
             if (imagen.dataset.color === producto.color) {
                 cambiarColorImagen(imagen, producto.color);
             }
         });
-        // Agregar event listener al botón de eliminar
+        // agregamos event listener al botón de eliminar
         btnEliminar.addEventListener('click', function() {
-            // Eliminar el producto del carrito
+            // eliminamos el producto del carrito
             carrito.splice(index, 1);
-            // Actualizar el carrito en el localStorage
+            // actualizamos el carrito en el localstorage
             localStorage.setItem('cart', JSON.stringify(carrito));
-            // Volver a llenar el carrito en el DOM
+            // volvemos a llenar el carrito en el dom
             llenarCarrito(carrito);
-            // Recalcular subtotal y total
+            // recalculamos subtotal y total
             calcularSubtotalYTotal(carrito);
         });
         });
@@ -102,19 +109,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function cambiarColorImagen(imagen, color) {
-        // Aplicar el filtro de color utilizando CSS
+        // aplicamos el filtro de color utilizando css
         imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
     }
 
-    function getColorRotation(color) {
-        // Definir un mapeo de colores y sus rotaciones de matiz asociadas
-        const colorRotations = {
-            "red": 0,
-            "yellow": 60,
-            "green": 120,
-            "blue": 240
-        };
-        // Devolver la rotación de matiz asociada al color
-        return colorRotations[color] || 0; // Si el color no está en el mapeo, no se aplica ninguna rotación
-    }
+    
 });

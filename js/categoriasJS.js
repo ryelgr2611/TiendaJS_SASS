@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             fetch('js/products.json').then(response => response.json())
         ]);
 
-        // Procesar las categorías
+        // procesamos las categorías y añadimos al select
         const categoriasRecomendadas = categoriasResponse.filter(categoria => categoria.recomendados === true);
         categoriasRecomendadas.forEach(categoria => {
             const option = document.createElement('option');
@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         if (idTipo) {
             selectFundas.value = idTipo;
-            // Filtrar las categorías por el tipo seleccionado
+            // filtramos las categorías por el tipo seleccionado
             const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idTipo);
             if (categoriaSeleccionada) {
                 renderizarCategoria(categoriaSeleccionada);
             }
-            // Filtrar productos por el tipo seleccionado y generar cartas
+            // filtramos productos por el tipo seleccionado y generamos cartas
             productosFiltrados = productosResponse.filter(producto => producto.idCategoria === idTipo);
             productosFiltrados.forEach(producto => {
                 cardMaker(producto);
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
 
         const modelo = new URLSearchParams(window.location.search).get('modelo');
-        // Procesar los modelos de iPhone
+        // procesamos los modelos de iPhone y agregamos al select
         const modelos = [...new Set(productosResponse.map(producto => producto.modelo))].sort();
         modelos.forEach(modelo => {
             const option = document.createElement('option');
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             selectModelo.appendChild(option);
         });
 
-        // Si hay un modelo especificado en la URL, seleccionarlo en el select
+        // si hay un modelo especificado en la URL, lo seleccionamos en el select
         if (modelo) {
             selectModelo.value = modelo;
             if(productosFiltrados.length===0){
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
         
 
-        // Agregar event listener para el cambio de opción en el select de modelo
+        // agregamos event listener para el cambio de opción en el select de modelo
         selectModelo.addEventListener('change', function() {
            if(productosFiltrados.length===0){
             productosFiltrados=filtrarProductosPorModelo(productosResponse,selectModelo.value);
@@ -75,12 +75,12 @@ document.addEventListener("DOMContentLoaded", async function() {
             paginaProductos(productosFiltrados);
         });
 
-        // Agregar event listener para el cambio de opción en el select de tipo de fundas
+        // agregamos event listener para el cambio de opción en el select de tipo de fundas
         selectFundas.addEventListener('change', function() {
             redirigirSegunCategoria(categoriasResponse);
         });
 
-        // Agregar event listener para la ordenacion
+        // agregamos event listener para la ordenacion
         selectSort.addEventListener('change', function() {
             const tipoOrden = selectSort.value;
             if(productosFiltrados.length===0){
@@ -88,12 +88,11 @@ document.addEventListener("DOMContentLoaded", async function() {
             }
             else{
                 ordenarProductos(productosFiltrados, tipoOrden);
-
             }
             
         });
 
-        // Agregar event listener para el input de búsqueda
+        // agregamos event listener para la búsqueda
         inputBusqueda.addEventListener('input', function() {
             const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
             if(productosFiltrados.length===0){
@@ -108,19 +107,19 @@ document.addEventListener("DOMContentLoaded", async function() {
         
 
     } catch (error) {
-        console.error('Error al obtener los datos:', error);
+        console.error('error al obtener los datos:', error);
     }
 
     function paginaProductos(productos) {
-        const productosPorPagina = 8; // Número de productos que deseas mostrar por página
-        let paginaActual = 1; // Página actual (inicialmente la primera página)
+        const productosPorPagina = 8; 
+        let paginaActual = 1; 
 
-        // Función para calcular el número total de páginas
+        // función para calcular el número total de páginas
         function calcularTotalPaginas() {
             return Math.ceil(productos.length / productosPorPagina);
         }
 
-        // Función para mostrar los productos de la página actual
+        // función para mostrar los productos de la página actual
         function mostrarProductosPorPagina() {
             const inicio = (paginaActual - 1) * productosPorPagina;
             const fin = inicio + productosPorPagina;
@@ -128,21 +127,21 @@ document.addEventListener("DOMContentLoaded", async function() {
             renderizarProductos(productosPagina);
         }
 
-        // Función para renderizar la paginación
+        // función para renderizar la paginación
         function renderizarPaginacion() {
             const totalPaginas = calcularTotalPaginas();
         
-            // Crear elementos para la paginación
+            // creamos los elementos para la paginación
             const paginacionContainer = document.querySelector('.paginacion');
             paginacionContainer.innerHTML = '';
         
-            // Botón "Anterior"
+            // botón "anterior"
             const botonAnterior = document.createElement('li');
             botonAnterior.classList.add('page-item');
             const linkAnterior = document.createElement('a');
             linkAnterior.classList.add('page-link');
             linkAnterior.href = '#';
-            linkAnterior.innerHTML = '&laquo;'; // Símbolo de "Anterior"
+            linkAnterior.innerHTML = '&laquo;'; // símbolo de "anterior"
             botonAnterior.appendChild(linkAnterior);
             paginacionContainer.appendChild(botonAnterior);
         
@@ -155,12 +154,12 @@ document.addEventListener("DOMContentLoaded", async function() {
                 }
             });
         
-            // Iterar sobre todas las páginas
+            // iterar sobre todas las páginas
             for (let i = 1; i <= totalPaginas; i++) {
                 const itemPagina = document.createElement('li');
                 itemPagina.classList.add('page-item');
                 
-                // Si la página actual es la iteración actual, resáltala
+                // si la página actual es la iteración actual, resáltala
                 if (i === paginaActual) {
                     itemPagina.classList.add('active');
                 }
@@ -172,22 +171,22 @@ document.addEventListener("DOMContentLoaded", async function() {
                 itemPagina.appendChild(linkPagina);
                 paginacionContainer.appendChild(itemPagina);
         
-                // Agregar evento click para cambiar de página
+                // agregar evento click para cambiar de página
                 linkPagina.addEventListener('click', function(event) {
                     event.preventDefault();
                     paginaActual = i;
                     mostrarProductosPorPagina();
-                    renderizarPaginacion(); // Volver a renderizar la paginación para actualizar el estado activo
+                    renderizarPaginacion(); // volver a renderizar la paginación para actualizar el estado activo
                 });
             }
         
-            // Botón "Siguiente"
+            // botón "siguiente"
             const botonSiguiente = document.createElement('li');
             botonSiguiente.classList.add('page-item');
             const linkSiguiente = document.createElement('a');
             linkSiguiente.classList.add('page-link');
             linkSiguiente.href = '#';
-            linkSiguiente.innerHTML = '&raquo;'; // Símbolo de "Siguiente"
+            linkSiguiente.innerHTML = '&raquo;'; // símbolo de "siguiente"
             botonSiguiente.appendChild(linkSiguiente);
             paginacionContainer.appendChild(botonSiguiente);
         
@@ -196,11 +195,11 @@ document.addEventListener("DOMContentLoaded", async function() {
                 if (paginaActual < totalPaginas) {
                     paginaActual++;
                     mostrarProductosPorPagina();
-                    renderizarPaginacion(); // Volver a renderizar la paginación para actualizar el estado activo
+                    renderizarPaginacion(); // volver a renderizar la paginación para actualizar el estado activo
                 }
             });
         }
-        // Mostrar productos y paginación al cargar la página
+        // mostrar productos y paginación al cargar la página
         mostrarProductosPorPagina();
         renderizarPaginacion();
     }
@@ -236,7 +235,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     ${producto.modelo} 
                 <span class="text-secondary  ms-3 ">${producto.precio}€</span>
                 </p>
-                <p class="text-dark ms-3 text-center  ">${producto.likes} <i class="bi bi-suit-heart-fill text-danger "></i></sp>
+                <p class="text-dark ms-3 text-center">${producto.likes} <i class="bi bi-suit-heart-fill text-danger "></i></sp>
                 
             </div>
         </a>
@@ -246,19 +245,19 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     function getHueRotation() {
         const rotations = [0, 60, 120, 240];
-        return rotations[Math.floor(Math.random() * rotations.length)]; // Obtener una rotación aleatoria de las disponibles
+        return rotations[Math.floor(Math.random() * rotations.length)]; // obtener una rotación aleatoria de las disponibles
     }
     
     
 
     function filtrarProductosPorModelo(productosResponse,valorModelo) {
         
-        // Verificar si no hay modelo seleccionado
+        // verificamos si no hay modelo seleccionado
         if (valorModelo==="nada") {
-            // Mostrar todos los productos sin filtrar
+            // mostrar todos los productos sin filtrar
             window.location.href = 'nuestrasFundas.html';
         }
-        // Filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
+        // filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
        
         return productosResponse.filter(producto => producto.modelo === valorModelo);
         
@@ -266,7 +265,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function filtrarProductosPorBusqueda(productos, texto) {
         if (!texto) {
-            return productos; // Si no hay texto de búsqueda, mostrar todos los productos
+            return productos; // si no hay texto de búsqueda, mostramos todos los productos
         }
         return productos.filter(producto =>
             (producto.nombre && producto.nombre.toLowerCase().includes(texto)) ||
@@ -276,23 +275,23 @@ document.addEventListener("DOMContentLoaded", async function() {
     
 
     function renderizarProductos(productos) {
-        fundas.innerHTML = ''; // Limpiar las cartas existentes antes de agregar las nuevas
+        fundas.innerHTML = ''; // limpiamos las cartas existentes antes de agregar las nuevas
         const mensajeNoResultados = document.getElementById('mensajeNoResultados');
         const gridFundas= document.querySelector('.grid-container');
     
         if (productos.length === 0) {
-            // Mostrar el mensaje si no hay productos
+            // mostramos el mensaje si no hay productos
             mensajeNoResultados.classList.remove('d-none');
             mensajeNoResultados.classList.add('d-block');
             gridFundas.classList.add('d-none');
         } else {
-            // Ocultar el mensaje si hay productos
+            // ocultamos el mensaje si hay productos
             mensajeNoResultados.classList.remove('d-block');
             mensajeNoResultados.classList.add('d-none');
             gridFundas.classList.remove('d-none');
 
     
-            // Agregar las nuevas cartas de productos
+            // agregamos las nuevas cartas de productos
             productos.forEach(producto => {
                 cardMaker(producto);
             });
@@ -311,7 +310,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
     
     function ordenarProductos(productos, tipoOrden) {
-        // Definimos la función de comparación según el tipo de orden
+        // definimos la función de comparación según el tipo de orden
         let comparador;
         switch (tipoOrden) {
             case 'precioAscendente':
@@ -324,14 +323,14 @@ document.addEventListener("DOMContentLoaded", async function() {
                 comparador = (a, b) => parseFloat(b.likes)- parseFloat(a.likes);
                 break;
             default:
-                // Por defecto, no se hace ninguna ordenación
+                // por defecto, no se hace ninguna ordenación
                 return;
         }
     
-        // Utilizamos el método sort() con el comparador definido
+        // utilizamos el método sort() con el comparador definido
         productos.sort(comparador);
     
-        // Renderizamos los productos ordenados
+        // renderizamos los productos ordenados
         paginaProductos(productos);
         
     }

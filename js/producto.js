@@ -1,3 +1,5 @@
+import { cambiarColorImagen } from "./funciones.js";
+
 document.addEventListener("DOMContentLoaded", async function() {
     try {
         const container = document.getElementById("mainContent");
@@ -176,29 +178,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             largeImg.src = src;
             largeImg.alt = title;
         }
-        function cambiarColorImagen(color) {
-            // Obtener el elemento de la imagen
-            const imagen = document.getElementById('largeImg');
-            const imagenesChicas = document.querySelectorAll('.miniImg');
-            // Aplicar el filtro de color utilizando CSS
-            imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
-            imagenesChicas.forEach(imagen => {
-                imagen.style.filter = `hue-rotate(${getColorRotation(color)}deg)`;
-            });
-    
-        }
-    
-        function getColorRotation(color) {
-            // Definir un mapeo de colores y sus rotaciones de matiz asociadas
-            const colorRotations = {
-                "red": 0,
-                "yellow":60,
-                "green": 120,
-                "blue": 240
-            };
-            // Devolver la rotación de matiz asociada al color
-            return colorRotations[color] || 0; // Si el color no está en el mapeo, no se aplica ninguna rotación
-        }
+        
     }
     
 });

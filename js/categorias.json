@@ -55,7 +55,7 @@
     {
       "id": "solid",
       "nombre": "Solid",
-      "descripcion":"Clásico pero no del todo, ya sabes elegancia",
+      "descripcion":"Clásico pero no del todo, ya sabes elegante",
       "imagenes":[
         "img/categorias/solido.jpg",
         "img/logos/logoSolid.png"
@@ -73,7 +73,7 @@
     {
       "id": "custom",
       "nombre": "Custom",
-      "descripcion":"Qué mejor que las cosas a tu gusto, tu lo decides.",
+      "descripcion":"Qué mejor que las cosas a tu gusto.",
       "imagenes":[
         "img/categorias/custom.jpg",
         "img/logos/logoCustom.png"
@@ -125,7 +125,7 @@
     {
       "id": "leather",
       "nombre": "Cuero",
-      "descripcion":"cuero molon",
+      "descripcion":"Si hablamos de porte, esta es tu categoría",
       "imagenes":[
         "img/categorias/leather.jpg",
         "img/logos/logoLeather.png"
