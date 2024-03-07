@@ -19,7 +19,13 @@ nav {
     color: black; 
     font-weight: bold;
 }
+.navbar-toggler:focus {
+    box-shadow: none;
+}
 
+.text-croco{
+    color: #36ce75;
+}
 #contDispositivos{
     width: 600px;
     
