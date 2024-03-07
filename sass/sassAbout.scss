@@ -30,6 +30,7 @@
           .img-hover-zoom {
             overflow: hidden;
             width: 100%;
+            @include flex-center;
           }
           
           .img-hover-zoom img {

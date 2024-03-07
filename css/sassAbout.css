@@ -23,6 +23,9 @@
 .main .contenedor .fila .columna .img-hover-zoom {
   overflow: hidden;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main .contenedor .fila .columna .img-hover-zoom img {
   transition: transform 1s ease;
