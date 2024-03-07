@@ -26,7 +26,17 @@
             max-width: 100%;
             height: auto;
             align-self: center;
-            
+          }
+          .img-hover-zoom {
+            overflow: hidden;
+          }
+          
+          .img-hover-zoom img {
+            transition: transform 0.3s ease;
+          }
+          
+          .img-hover-zoom:hover img {
+            transform: scale(1.2);
           }
         }
         #invert{

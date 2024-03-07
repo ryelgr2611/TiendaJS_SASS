@@ -20,6 +20,15 @@
   height: auto;
   align-self: center;
 }
+.main .contenedor .fila .columna .img-hover-zoom {
+  overflow: hidden;
+}
+.main .contenedor .fila .columna .img-hover-zoom img {
+  transition: transform 0.3s ease;
+}
+.main .contenedor .fila .columna .img-hover-zoom:hover img {
+  transform: scale(1.2);
+}
 .main .contenedor .fila #invert {
   order: -1;
 }

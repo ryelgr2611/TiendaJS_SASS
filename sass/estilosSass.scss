@@ -14,44 +14,46 @@
   a {
     text-decoration: none;
     color: black;
+    margin: 0;
+    
   }
   a:hover {
-    font-weight: 300;
+    font-weight: bold;
     color: #1b1f1c;
-}
-
-
-  .social-icon,.menu {
+    text-shadow: 2px 2px #ffffff;
+  }
+  
+  
+  .social-icon {
     @include flex-center;
     margin: 10px 0;
     flex-wrap: wrap;
   }
-
-  .social-icon-item,.menu-item {
+  
+  .social-icon-item,.menu-item{
     list-style: none;
   }
-
+  
   .social-icon-link {
     font-size: 2rem;
     color: #fff;
     margin: 0 10px;
     display: inline-block;
-    transition: 0.5s;
-
+    transition: 1s;
+    
     &:hover {
       transform: translateY(-5px);
     }
   }
-
+  
   .menu-link {
     font-size: 1.2rem;
     color: #fff;
-    margin: 0 10px;
     display: inline-block;
-    transition: 0.5s;
+    transition: 1s;
     text-decoration: none;
     opacity: 0.75;
-    font-weight: 300;
+    text-shadow: 2px 2px #000000;
 
     &:hover {
       opacity: 1;
@@ -61,9 +63,35 @@
   p {
     color: #fff;
     margin: 15px 0 10px 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     
+  }
+
+  .footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+
+  .footer-column {
+      margin: 20px;
+      margin-bottom: 20px;
+      width: 250px;
+  }
+
+  .footer-column h3 {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
   }
 
 }

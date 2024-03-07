@@ -11,12 +11,14 @@
 .footer a {
   text-decoration: none;
   color: black;
+  margin: 0;
 }
 .footer a:hover {
-  font-weight: 300;
+  font-weight: bold;
   color: #1b1f1c;
+  text-shadow: 2px 2px #ffffff;
 }
-.footer .social-icon, .footer .menu {
+.footer .social-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +33,7 @@
   color: #fff;
   margin: 0 10px;
   display: inline-block;
-  transition: 0.5s;
+  transition: 1s;
 }
 .footer .social-icon-link:hover {
   transform: translateY(-5px);
@@ -39,12 +41,11 @@
 .footer .menu-link {
   font-size: 1.2rem;
   color: #fff;
-  margin: 0 10px;
   display: inline-block;
-  transition: 0.5s;
+  transition: 1s;
   text-decoration: none;
   opacity: 0.75;
-  font-weight: 300;
+  text-shadow: 2px 2px #000000;
 }
 .footer .menu-link:hover {
   opacity: 1;
@@ -52,8 +53,30 @@
 .footer p {
   color: #fff;
   margin: 15px 0 10px 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
+}
+.footer .footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+.footer .footer-column {
+  margin: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+}
+.footer .footer-column h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.footer .footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
 }
 
 /*# sourceMappingURL=estilosSass.css.map */
