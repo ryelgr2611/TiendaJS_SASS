@@ -24,7 +24,7 @@ nav {
 }
 
 .text-croco{
-    color: #36ce75;
+    color: #36ce75 !important;
 }
 #contDispositivos{
     width: 600px;
