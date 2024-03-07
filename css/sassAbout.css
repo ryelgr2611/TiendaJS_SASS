@@ -28,6 +28,7 @@
   align-items: center;
 }
 .main .contenedor .fila .columna .img-hover-zoom img {
+  width: 100%;
   transition: transform 1s ease;
 }
 .main .contenedor .fila .columna .img-hover-zoom:hover img {
