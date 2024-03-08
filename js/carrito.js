@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const carritoContainer = document.querySelector('.col-lg-8');
     const subtotalElement = document.getElementById("subtotal");
     const totalElement = document.getElementById("total");
+    const pedido=document.getElementById("botonPedido");
 
     // obtenemos el carrito del localstorage
     let carrito = JSON.parse(localStorage.getItem('cart')) || [];
@@ -30,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 event.target.value = carrito[index].cantidad;
             }
         }
+    });
+
+    pedido.addEventListener('click', function() {
+        localStorage.removeItem('cart');
+        location.reload();
     });
 
     function llenarCarrito(carrito) {
