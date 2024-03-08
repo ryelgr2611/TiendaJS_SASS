@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nombre": "Funda Crocopple iPhone15 ",
+    "nombre": "Funda Crocopple iPhone 15 ",
     "descripcion": "Funda con el Cocodrilo más simpático. Protege tu iPhone 15 con estilo.",
     "idCategoria": "crocopple",
     "modelo": "iPhone 15",
@@ -18,7 +18,7 @@
   },
   {
     "id": 2,
-    "nombre": "Funda Crocopple iPhone13",
+    "nombre": "Funda Crocopple iPhone 13",
     "descripcion": "Funda Crocopple en tamaño XL para tu iPhone 15 Plus. Dale un toque único a tu dispositivo.",
     "idCategoria": "crocopple",
     "modelo": "iPhone 13",
@@ -54,7 +54,7 @@
   },
   {
     "id": 4,
-    "nombre": "Funda Tie-dye iPhone13",
+    "nombre": "Funda Tie-dye iPhone 13",
     "descripcion": "Elige lo rompedor por encima de lo común. Dale a tu iPhone 15 con estilo único con esta funda Tie-dye.",
     "idCategoria": "tiedye",
     "modelo": "iPhone 13",
