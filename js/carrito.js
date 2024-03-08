@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (carrito.length === 0) 
         carritoContainer.innerHTML =  `
             <h1 class="text-dark mt-4">No hay productos en su cesta</h1>
-            <img src=img/logos/carritoSAD.png>
+            <img src=../img/logos/carritoSAD.png>
             `;
 
         // iteramos sobre los productos en el carrito y los agregamos
