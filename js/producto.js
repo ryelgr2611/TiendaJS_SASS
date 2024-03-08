@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             <hr>
                             <label for="selectModelo" class="form-label">Modelo de iPhone</label>
                             <select class="form-select mt-4 " id="selectModelo">
-                                <option value="nada">Selecciona el modelo</option>
+                                <option value="nada">${producto.modelo}</option>
                                 ${modelosProductosRelacionados.map(modelo => `<option value="${modelo}">${modelo}</option>`).join('')}
                             </select>
                             <hr class="mt-5 ">

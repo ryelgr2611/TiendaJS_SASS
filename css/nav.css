@@ -7,6 +7,9 @@ nav {
     color: black; 
     font-weight: bold;
 }
+.nav-link:hover{
+    color: #2bac52;
+}
 .navbar-toggler:focus {
     box-shadow: none;
 }
