@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             <hr>
                             <label for="selectModelo" class="form-label">Modelo de iPhone</label>
                             <select class="form-select mt-4 " id="selectModelo">
-                                <option value="nada">selecciona el modelo</option>
+                                <option value="nada">Selecciona el modelo</option>
                                 ${modelosProductosRelacionados.map(modelo => `<option value="${modelo}">${modelo}</option>`).join('')}
                             </select>
                             <hr class="mt-5 ">
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                 <div class="col-9">
                                     <button type="button" class="btn btn-dark  w-100" id="addToCartBtn">
                                         <i class="bi-cart3">
-                                            <p class="d-inline fw-bold fst-normal"> añadir al carrito</p>
+                                            <p class="d-inline fw-bold fst-normal"> Añadir al carrito</p>
                                         </i>
                                     </button>
                                 </div>
@@ -172,13 +172,13 @@ document.addEventListener("DOMContentLoaded", async function() {
             // guardamos el carrito actualizado en localstorage
             localStorage.setItem('cart', JSON.stringify(cart));
         
-            // Muestra el off-canvas con el mensaje
+            // mostramos el off-canvas con el mensaje
             const offCanvas = document.getElementById('offCanvas');
             const offCanvasMessage = document.getElementById('offCanvasMessage');
             offCanvasMessage.textContent = '¡El producto se ha añadido al carrito!';
             offCanvas.classList.add('show');
 
-            // Oculta el off-canvas después de un tiempo
+            // ocultamos el off-canvas después de un tiempo
             setTimeout(function() {
                 offCanvas.classList.remove('show');
             }, 1500); 

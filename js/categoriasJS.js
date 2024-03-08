@@ -1,22 +1,19 @@
-// Evento que se ejecuta cuando el DOM ha sido completamente cargado
 document.addEventListener("DOMContentLoaded", async function() {
-    // Seleccionamos los elementos del DOM que vamos a utilizar
     const container = document.querySelector('.container');
     const selectFundas = document.getElementById('selectFundas');
     const selectModelo = document.getElementById('selectModelo');
     const selectSort = document.getElementById('selectOrdena');
     const fundas = document.querySelector('.grid-container');
     const inputBusqueda = document.getElementById('inputBusqueda');
-    let productosFiltrados = [];
+    let productosFiltrados=[];
 
     try {
-        // Obtenemos las categorías y los productos de forma asíncrona
         const [categoriasResponse, productosResponse] = await Promise.all([
             fetch('js/categorias.json').then(response => response.json()),
             fetch('js/products.json').then(response => response.json())
         ]);
 
-        // Procesamos las categorías recomendadas y las añadimos al select
+        // procesamos las categorías y añadimos al select
         const categoriasRecomendadas = categoriasResponse.filter(categoria => categoria.recomendados === true);
         categoriasRecomendadas.forEach(categoria => {
             const option = document.createElement('option');
@@ -25,122 +22,188 @@ document.addEventListener("DOMContentLoaded", async function() {
             selectFundas.appendChild(option);
         });
 
-        // Obtenemos los modelos y los añadimos al select de modelos
-        const modelos = [...new Set(productosResponse.map(producto => producto.modelo))].sort();
-        modelos.forEach(modelo => {
-            const option = createOptionElement(modelo);
-            selectModelo.appendChild(option);
-        });
+        let idTipo = new URLSearchParams(window.location.search).get('tipo');
 
-        // Obtenemos los parámetros de la URL para filtrar los productos si es necesario
-        const idTipo = new URLSearchParams(window.location.search).get('tipo');
-        const modelo = new URLSearchParams(window.location.search).get('modelo');
-
-        // Si hay un tipo seleccionado, filtramos los productos por ese tipo y los renderizamos
         if (idTipo) {
             selectFundas.value = idTipo;
+            // filtramos las categorías por el tipo seleccionado
             const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idTipo);
             if (categoriaSeleccionada) {
                 renderizarCategoria(categoriaSeleccionada);
             }
-            productosFiltrados = filtrarProductosPorTipo(productosResponse, idTipo);
-            renderizarProductosYPaginacion(productosFiltrados);
+            // filtramos productos por el tipo seleccionado y generamos cartas
+            productosFiltrados = productosResponse.filter(producto => producto.idCategoria === idTipo);
+            productosFiltrados.forEach(producto => {
+                cardMaker(producto);
+                paginaProductos(productosFiltrados);
+                
+            });
         } else {
-            renderizarProductosYPaginacion(productosResponse);
+            productosResponse.forEach(producto => {
+                cardMaker(producto);
+                paginaProductos(productosResponse);
+            })
         }
 
-        // Si hay un modelo seleccionado, filtramos los productos por ese modelo y los renderizamos
-        if (modelo) {
-            selectModelo.value = modelo;
-            productosFiltrados = filtrarProductosPorModelo(productosFiltrados.length ? productosFiltrados : productosResponse, modelo);
-            renderizarProductosYPaginacion(productosFiltrados);
-        }
-
-        // Evento para filtrar los productos por modelo cuando se selecciona uno en el select
-        selectModelo.addEventListener('change', function() {
-            productosFiltrados = filtrarProductosPorModelo(productosFiltrados.length ? productosFiltrados : productosResponse, selectModelo.value);
-            renderizarProductosYPaginacion(productosFiltrados);
+        const modelo = new URLSearchParams(window.location.search).get('modelo');
+        // procesamos los modelos de iPhone y agregamos al select
+        const modelos = [...new Set(productosResponse.map(producto => producto.modelo))].sort();
+        modelos.forEach(modelo => {
+            const option = document.createElement('option');
+            option.value = modelo;
+            option.textContent = modelo;
+            selectModelo.appendChild(option);
         });
 
-        // Evento para redirigir según la categoría seleccionada en el select de categorías
+        // si hay un modelo especificado en la URL, lo seleccionamos en el select
+        if (modelo) {
+            selectModelo.value = modelo;
+            if(productosFiltrados.length===0){
+                productosFiltrados=filtrarProductosPorModelo(productosResponse,modelo);
+               }else
+                productosFiltrados=filtrarProductosPorModelo(productosFiltrados,modelo);
+                paginaProductos(productosFiltrados);
+        }
+        
+
+        // agregamos event listener para el cambio de opción en el select de modelo
+        selectModelo.addEventListener('change', function() {
+           if(productosFiltrados.length===0){
+            productosFiltrados=filtrarProductosPorModelo(productosResponse,selectModelo.value);
+           }else
+            productosFiltrados=filtrarProductosPorModelo(productosFiltrados,selectModelo.value);
+            paginaProductos(productosFiltrados);
+        });
+
+        // agregamos event listener para el cambio de opción en el select de tipo de fundas
         selectFundas.addEventListener('change', function() {
             redirigirSegunCategoria(categoriasResponse);
         });
 
-        // Evento para ordenar los productos cuando se selecciona una opción en el select de orden
+        // agregamos event listener para la ordenacion
         selectSort.addEventListener('change', function() {
-            const productosOrdenados = ordenarProductos(productosFiltrados.length ? productosFiltrados : productosResponse, selectSort.value);
-            renderizarProductosYPaginacion(productosOrdenados);
+            const tipoOrden = selectSort.value;
+            if(productosFiltrados.length===0){
+                ordenarProductos(productosResponse, tipoOrden);
+            }
+            else{
+                ordenarProductos(productosFiltrados, tipoOrden);
+            }
+            
         });
 
-        // Evento para filtrar los productos por búsqueda cuando se introduce texto en el input de búsqueda
+        // agregamos event listener para la búsqueda
         inputBusqueda.addEventListener('input', function() {
             const textoBusqueda = inputBusqueda.value.trim().toLowerCase();
-            const productosFiltrados = filtrarProductosPorBusqueda(productosFiltrados.length ? productosFiltrados : productosResponse, textoBusqueda);
-            renderizarProductosYPaginacion(productosFiltrados);
+            if(productosFiltrados.length===0){
+                paginaProductos(filtrarProductosPorBusqueda(productosResponse, textoBusqueda));
+            }
+            else{
+                paginaProductos(filtrarProductosPorBusqueda(productosFiltrados, textoBusqueda));
+
+            }
         });
+
+        
 
     } catch (error) {
         console.error('error al obtener los datos:', error);
     }
 
-    // Función para renderizar los productos y la paginación
-    function renderizarProductosYPaginacion(productos) {
-        renderizarProductos(productos);
-        renderizarPaginacion(productos);
-    }
+    function paginaProductos(productos) {
+        const productosPorPagina = 8; 
+        let paginaActual = 1; 
 
-    // Función para crear un elemento de opción para un select
-    function createOptionElement(value) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        return option;
-    }
-
-    // Función para filtrar productos por tipo
-    function filtrarProductosPorTipo(productos, tipo) {
-        return productos.filter(producto => producto.idCategoria === tipo);
-    }
-
-    // Función para filtrar productos por modelo
-    function filtrarProductosPorModelo(productos, modelo) {
-        return productos.filter(producto => producto.modelo === modelo);
-    }
-
-    // Función para filtrar productos por búsqueda
-    function filtrarProductosPorBusqueda(productos, texto) {
-        if (!texto) {
-            return productos;
+        // función para calcular el número total de páginas
+        function calcularTotalPaginas() {
+            return Math.ceil(productos.length / productosPorPagina);
         }
-        return productos.filter(producto =>
-            (producto.nombre && producto.nombre.toLowerCase().includes(texto)) ||
-            (producto.categoria && producto.categoria.toLowerCase().includes(texto))
-        );
-    }
 
-    // Función para renderizar los productos en el contenedor
-    function renderizarProductos(productos) {
-        fundas.innerHTML = '';
-        const mensajeNoResultados = document.getElementById('mensajeNoResultados');
-        const gridFundas = document.querySelector('.grid-container');
+        // función para mostrar los productos de la página actual
+        function mostrarProductosPorPagina() {
+            const inicio = (paginaActual - 1) * productosPorPagina;
+            const fin = inicio + productosPorPagina;
+            const productosPagina = productos.slice(inicio, fin);
+            renderizarProductos(productosPagina);
+        }
 
-        if (productos.length === 0) {
-            mensajeNoResultados.classList.remove('d-none');
-            mensajeNoResultados.classList.add('d-block');
-            gridFundas.classList.add('d-none');
-        } else {
-            mensajeNoResultados.classList.remove('d-block');
-            mensajeNoResultados.classList.add('d-none');
-            gridFundas.classList.remove('d-none');
-
-            productos.forEach(producto => {
-                cardMaker(producto);
+        // función para renderizar la paginación
+        function renderizarPaginacion() {
+            const totalPaginas = calcularTotalPaginas();
+        
+            // creamos los elementos para la paginación
+            const paginacionContainer = document.querySelector('.paginacion');
+            paginacionContainer.innerHTML = '';
+        
+            // botón "anterior"
+            const botonAnterior = document.createElement('li');
+            botonAnterior.classList.add('page-item');
+            const linkAnterior = document.createElement('a');
+            linkAnterior.classList.add('page-link');
+            linkAnterior.href = '#';
+            linkAnterior.innerHTML = '&laquo;'; // símbolo de "anterior"
+            botonAnterior.appendChild(linkAnterior);
+            paginacionContainer.appendChild(botonAnterior);
+        
+            linkAnterior.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (paginaActual > 1) {
+                    paginaActual--;
+                    mostrarProductosPorPagina();
+                    renderizarPaginacion();
+                }
+            });
+        
+            // iterar sobre todas las páginas
+            for (let i = 1; i <= totalPaginas; i++) {
+                const itemPagina = document.createElement('li');
+                itemPagina.classList.add('page-item');
+                
+                // si la página actual es la iteración actual, resáltala
+                if (i === paginaActual) {
+                    itemPagina.classList.add('active');
+                }
+        
+                const linkPagina = document.createElement('a');
+                linkPagina.classList.add('page-link');
+                linkPagina.href = '#';
+                linkPagina.textContent = i;
+                itemPagina.appendChild(linkPagina);
+                paginacionContainer.appendChild(itemPagina);
+        
+                // agregar evento click para cambiar de página
+                linkPagina.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    paginaActual = i;
+                    mostrarProductosPorPagina();
+                    renderizarPaginacion(); // volver a renderizar la paginación para actualizar el estado activo
+                });
+            }
+        
+            // botón "siguiente"
+            const botonSiguiente = document.createElement('li');
+            botonSiguiente.classList.add('page-item');
+            const linkSiguiente = document.createElement('a');
+            linkSiguiente.classList.add('page-link');
+            linkSiguiente.href = '#';
+            linkSiguiente.innerHTML = '&raquo;'; // símbolo de "siguiente"
+            botonSiguiente.appendChild(linkSiguiente);
+            paginacionContainer.appendChild(botonSiguiente);
+        
+            linkSiguiente.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (paginaActual < totalPaginas) {
+                    paginaActual++;
+                    mostrarProductosPorPagina();
+                    renderizarPaginacion(); // volver a renderizar la paginación para actualizar el estado activo
+                }
             });
         }
+        // mostrar productos y paginación al cargar la página
+        mostrarProductosPorPagina();
+        renderizarPaginacion();
     }
 
-    // Función para renderizar la categoría seleccionada
     function renderizarCategoria(categoria) {
         let contenido = `
             <div class="row flex justify-content-center">
@@ -163,7 +226,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         container.innerHTML = contenido;
     }
 
-    // Función para crear una tarjeta de producto
     function cardMaker(producto) {
         let contenido = `
         <a href="../producto.html?idProducto=${producto.id}" class="card-link text-decoration-none">
@@ -174,31 +236,81 @@ document.addEventListener("DOMContentLoaded", async function() {
                 <span class="text-secondary  ms-3 ">${producto.precio}€</span>
                 </p>
                 <p class="text-dark ms-3 text-center">${producto.likes} <i class="bi bi-suit-heart-fill text-danger "></i></sp>
+                
             </div>
         </a>
         `;
         fundas.innerHTML += contenido;
     }
-
-    // Función para obtener una rotación de tono aleatoria
+    
     function getHueRotation() {
         const rotations = [0, 60, 120, 240];
-        return rotations[Math.floor(Math.random() * rotations.length)];
+        return rotations[Math.floor(Math.random() * rotations.length)]; // obtener una rotación aleatoria de las disponibles
+    }
+    
+    
+
+    function filtrarProductosPorModelo(productosResponse,valorModelo) {
+        
+        // verificamos si no hay modelo seleccionado
+        if (valorModelo==="nada") {
+            // mostrar todos los productos sin filtrar
+            window.location.href = 'nuestrasFundas.html';
+        }
+        // filtrar y mostrar los productos cuyo modelo coincida con el seleccionado
+       
+        return productosResponse.filter(producto => producto.modelo === valorModelo);
+        
     }
 
-    // Función para redirigir según la categoría seleccionada en el select de categorías
+    function filtrarProductosPorBusqueda(productos, texto) {
+        if (!texto) {
+            return productos; // si no hay texto de búsqueda, mostramos todos los productos
+        }
+        return productos.filter(producto =>
+            (producto.nombre && producto.nombre.toLowerCase().includes(texto)) ||
+            (producto.categoria && producto.categoria.toLowerCase().includes(texto))
+        );
+    }
+    
+
+    function renderizarProductos(productos) {
+        fundas.innerHTML = ''; // limpiamos las cartas existentes antes de agregar las nuevas
+        const mensajeNoResultados = document.getElementById('mensajeNoResultados');
+        const gridFundas= document.querySelector('.grid-container');
+    
+        if (productos.length === 0) {
+            // mostramos el mensaje si no hay productos
+            mensajeNoResultados.classList.remove('d-none');
+            mensajeNoResultados.classList.add('d-block');
+            gridFundas.classList.add('d-none');
+        } else {
+            // ocultamos el mensaje si hay productos
+            mensajeNoResultados.classList.remove('d-block');
+            mensajeNoResultados.classList.add('d-none');
+            gridFundas.classList.remove('d-none');
+
+    
+            // agregamos las nuevas cartas de productos
+            productos.forEach(producto => {
+                cardMaker(producto);
+            });
+        }
+    }
+    
     function redirigirSegunCategoria(categoriasResponse) {
         const idSeleccionado = selectFundas.value;
         const categoriaSeleccionada = categoriasResponse.find(categoria => categoria.id === idSeleccionado);
         if (categoriaSeleccionada) {
             window.location.href = 'nuestrasFundas.html?tipo=' + idSeleccionado;
+            
         } else {
             window.location.href = 'nuestrasFundas.html';
         }
     }
-
-    // Función para ordenar los productos según el tipo de orden seleccionado
+    
     function ordenarProductos(productos, tipoOrden) {
+        // definimos la función de comparación según el tipo de orden
         let comparador;
         switch (tipoOrden) {
             case 'precioAscendente':
@@ -208,95 +320,19 @@ document.addEventListener("DOMContentLoaded", async function() {
                 comparador = (a, b) => parseFloat(b.precio) - parseFloat(a.precio);
                 break;
             case 'likes':
-                comparador = (a, b) => parseFloat(b.likes) - parseFloat(a.likes);
+                comparador = (a, b) => parseFloat(b.likes)- parseFloat(a.likes);
                 break;
             default:
-                return productos;
+                // por defecto, no se hace ninguna ordenación
+                return;
         }
-
-        return productos.slice().sort(comparador);
+    
+        // utilizamos el método sort() con el comparador definido
+        productos.sort(comparador);
+    
+        // renderizamos los productos ordenados
+        paginaProductos(productos);
+        
     }
-
-    // Función para renderizar la paginación de los productos
-    function renderizarPaginacion(productos) {
-        const productosPorPagina = 8;
-        let paginaActual = 1;
-
-        // Función para calcular el total de páginas según la cantidad de productos
-        function calcularTotalPaginas() {
-            return Math.ceil(productos.length / productosPorPagina);
-        }
-
-        // Función para mostrar los productos correspondientes a la página actual
-        function mostrarProductosPorPagina() {
-            const inicio = (paginaActual - 1) * productosPorPagina;
-            const fin = inicio + productosPorPagina;
-            const productosPagina = productos.slice(inicio, fin);
-            renderizarProductos(productosPagina);
-        }
-
-        // Función para renderizar los botones de la paginación
-        function renderizarPaginacion() {
-            const totalPaginas = calcularTotalPaginas();
-            const paginacionContainer = document.querySelector('.paginacion');
-            paginacionContainer.innerHTML = '';
-            const botonAnterior = createPaginacionButton('&laquo;');
-            botonAnterior.addEventListener('click', function(event) {
-                event.preventDefault();
-                if (paginaActual > 1) {
-                    paginaActual--;
-                    mostrarProductosPorPagina();
-                    renderizarPaginacion();
-                }
-            });
-            paginacionContainer.appendChild(botonAnterior);
-
-            for (let i = 1; i <= totalPaginas; i++) {
-                const itemPagina = createPaginacionItem(i === paginaActual);
-                const linkPagina = createPaginacionButton(i);
-                linkPagina.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    paginaActual = i;
-                    mostrarProductosPorPagina();
-                    renderizarPaginacion();
-                });
-                itemPagina.appendChild(linkPagina);
-                paginacionContainer.appendChild(itemPagina);
-            }
-
-            const botonSiguiente = createPaginacionButton('&raquo;');
-            botonSiguiente.addEventListener('click', function(event) {
-                event.preventDefault();
-                if (paginaActual < totalPaginas) {
-                    paginaActual++;
-                    mostrarProductosPorPagina();
-                    renderizarPaginacion();
-                }
-            });
-            paginacionContainer.appendChild(botonSiguiente);
-        }
-
-        mostrarProductosPorPagina();
-        renderizarPaginacion();
-    }
-
-    // Función para crear un elemento de la paginación
-    function createPaginacionItem(isActive) {
-        const item = document.createElement('li');
-        item.classList.add('page-item');
-        if (isActive) {
-            item.classList.add('active');
-        }
-        return item;
-    }
-
-    // Función para crear un botón de la paginación
-    function createPaginacionButton(content) {
-        const button = document.createElement('a');
-        button.classList.add('page-link');
-        button.href = '#';
-        button.innerHTML = content;
-        return button;
-    }
-
+    
 });
