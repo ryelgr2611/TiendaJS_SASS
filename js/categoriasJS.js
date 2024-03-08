@@ -228,9 +228,9 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function cardMaker(producto) {
         let contenido = `
-        <a href="../producto.html?idProducto=${producto.id}" class="card-link text-decoration-none">
+        <a href="../producto.html?idProducto=${producto.id}" class=" text-decoration-none">
             <div class="cartaProducto">
-                <img src="${producto.imagenes[0]}" alt="${producto.nombre}" style="${producto.colores ? 'filter: hue-rotate(' + getHueRotation() + 'deg);' : ''}">
+                <img src="${producto.imagenes[0]}" alt="${producto.nombre}" class="img-fluid "style="${producto.colores ? 'filter: hue-rotate(' + getHueRotation() + 'deg);' : ''}">
                 <p class="text-center">
                     ${producto.modelo} 
                 <span class="text-secondary  ms-3 ">${producto.precio}€</span>

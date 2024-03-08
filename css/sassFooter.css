@@ -41,7 +41,6 @@
 .footer .menu-link, .footer p {
   font-size: 1.2rem;
   color: #fff;
-  display: inline-block;
   transition: 1s;
   text-decoration: none;
   opacity: 0.75;
