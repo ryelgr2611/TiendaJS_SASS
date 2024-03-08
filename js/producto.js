@@ -2,43 +2,42 @@ import { cambiarColorImagen } from "./funciones.js";
 
 document.addEventListener("DOMContentLoaded", async function() {
     try {
+        // obtenemos el contenedor principal
         const container = document.getElementById("mainContent");
 
-        // Obtener el id del producto de la URL
         const idProducto = new URLSearchParams(window.location.search).get('idProducto');
 
-        // Fetch para obtener los datos del JSON
+        // obtenemos los datos de los productos y las categorías desde los archivos json
         const responseProductos = await fetch('js/products.json');
         const productos = await responseProductos.json();
 
         const responseCategorias = await fetch('js/categorias.json');
         const categorias = await responseCategorias.json();
 
-        // Encontrar el producto correspondiente al idProducto
+        // encontramos el producto correspondiente al idProducto
         const producto = productos.find(producto => producto.id === parseInt(idProducto));
 
-        // Verificar si se encontró el producto
+        // verificamos si encontramos el producto
         if (producto) {
-            // Obtener los productos que tienen la misma id de categoría que el producto actual
+            // obtenemos los productos que tienen la misma id de categoría que el producto actual
             const productosRelacionados = productos.filter(p => p.idCategoria === producto.idCategoria && p.id !== producto.id);
 
-            // Obtener los modelos de los productos relacionados
+            // obtenemos los modelos de los productos relacionados
             const modelosProductosRelacionados = productosRelacionados.map(p => p.modelo).filter(modelo => modelo);
 
-            // Generar el HTML del producto y los modelos de los productos relacionados
             const productoHTML = generarProductoHTML(producto, modelosProductosRelacionados);
             container.innerHTML = productoHTML;
 
-            // Asignar event listener a las miniaturas después de que se ha generado el contenido
             asignarEventListeners(productos, producto);
         } else {
-            console.error('Producto no encontrado');
+            console.error('producto no encontrado');
         }
 
     } catch (error) {
-        console.error('Error al obtener los datos:', error);
+        console.error('error al obtener los datos:', error);
     }
 
+    // función para generar el html del producto
     function generarProductoHTML(producto, modelosProductosRelacionados) {
         return `
             <div class="container mt-5">
@@ -46,10 +45,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <div class="col-md-6">
                         <div class="text-center">
                             <div id="capaImagenProducto" class="">
-                                <p><img id="largeImg" src="${producto.imagenes[0]}" alt="Imagen grande" class="img-fluid"></p>
+                                <p><img id="largeImg" src="${producto.imagenes[0]}" alt="imagen grande" class="img-fluid"></p>
                                 <ul id="thumbs" class="text-center ">
                                     ${producto.imagenes?.slice(1).map((imagen, index) => `
-                                        <li><a href="#" title="Imagen ${index + 2}"><img src="${imagen}" class="miniImg"></a></li>
+                                        <li><a href="#" title="imagen ${index + 2}"><img src="${imagen}" class="miniImg"></a></li>
                                     `).join('')}
                                 </ul>
                             </div>
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                             <hr>
                             <label for="selectModelo" class="form-label">Modelo de iPhone</label>
                             <select class="form-select mt-4 " id="selectModelo">
-                                <option value="nada">Selecciona el modelo</option>
+                                <option value="nada">selecciona el modelo</option>
                                 ${modelosProductosRelacionados.map(modelo => `<option value="${modelo}">${modelo}</option>`).join('')}
                             </select>
                             <hr class="mt-5 ">
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                                 <div class="col-9">
                                     <button type="button" class="btn btn-dark  w-100" id="addToCartBtn">
                                         <i class="bi-cart3">
-                                            <p class="d-inline fw-bold fst-normal"> Añadir al carrito</p>
+                                            <p class="d-inline fw-bold fst-normal"> añadir al carrito</p>
                                         </i>
                                     </button>
                                 </div>
@@ -101,12 +100,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         `;
     }
 
+    // función para asignar event listeners
     function asignarEventListeners(productos, producto) {
         let thumbs = document.getElementById("thumbs");
         let largeImg = document.getElementById("largeImg");
         let selectModelo = document.getElementById("selectModelo");
         let addToCartBtn = document.getElementById("addToCartBtn");
     
+        // event listener para las miniaturas de las imágenes
         thumbs.onclick = function(event) {
             let thumbnail = event.target.closest('img');
     
@@ -117,30 +118,32 @@ document.addEventListener("DOMContentLoaded", async function() {
             event.preventDefault();
         };
     
-        // Agregar event listener a los círculos de color
+        // event listener para los círculos de color
         document.querySelectorAll('.color-circle').forEach(circle => {
             circle.addEventListener('click', function() {
                 const color = this.dataset.color;
                 cambiarColorImagen(color);
-                producto.color = color; // Agregar el color seleccionado al objeto del producto
+                producto.color = color; // agregamos el color seleccionado al objeto del producto
             });
         });
     
+        // event listener para el cambio de modelo
         selectModelo.addEventListener('change', function() {
             const selectedModelo = selectModelo.value;
-            // Buscar el producto correspondiente al modelo seleccionado y que también sea de la misma categoría
+            // buscamos el producto correspondiente al modelo seleccionado y que también sea de la misma categoría
             const productoSeleccionado = productos.find(p => p.modelo === selectedModelo && p.idCategoria === document.getElementById("categoria").innerText.toLowerCase());
     
             if (productoSeleccionado) {
-                // Obtener la ID del producto seleccionado
+                // obtenemos la id del producto seleccionado
                 const idProductoSeleccionado = productoSeleccionado.id;
-                // Redireccionar a la página del producto seleccionado
+                // redireccionamos a la página del producto seleccionado
                 window.location.href = `../producto.html?idProducto=${idProductoSeleccionado}`;
             }
         });
     
+        // event listener para agregar al carrito
         addToCartBtn.addEventListener('click', function() {
-            // Obtener el carrito de localStorage o crear uno si no existe
+            // obtenemos el carrito de localstorage o creamos uno si no existe
             let cart = localStorage.getItem('cart');
             if (!cart) {
                 cart = [];
@@ -148,30 +151,39 @@ document.addEventListener("DOMContentLoaded", async function() {
                 cart = JSON.parse(cart);
             }
         
-            // Obtener el color seleccionado
+            // obtenemos el color seleccionado
             const selectedColor = producto.color;
         
-            // Buscar si ya existe el mismo producto con el mismo color en el carrito
+            // buscamos si ya existe el mismo producto con el mismo color en el carrito
             const existingProductIndex = cart.findIndex(item => item.id === producto.id && item.color === selectedColor);
         
             if (existingProductIndex !== -1) {
-                // Si el producto con el mismo color ya está en el carrito, aumentar la cantidad
+                // si el producto con el mismo color ya está en el carrito, aumentamos la cantidad
                 cart[existingProductIndex].cantidad++;
             } else {
-                // Si el producto con el mismo color no está en el carrito, agregarlo con cantidad 1
-                producto.imagen = largeImg.src; // Agregar la URL de la imagen del producto
-                producto.nombre = document.querySelector('h5').innerText; // Agregar el nombre del producto
-                producto.color = selectedColor; // Agregar el color seleccionado al objeto del producto
+                // si el producto con el mismo color no está en el carrito, lo agregamos con cantidad 1
+                producto.imagen = largeImg.src; // agregamos la url de la imagen del producto
+                producto.nombre = document.querySelector('h5').innerText; // agregamos el nombre del producto
+                producto.color = selectedColor; // agregamos el color seleccionado al objeto del producto
                 producto.cantidad = 1;
                 cart.push(producto);
             }
         
-            // Guardar el carrito actualizado en localStorage
+            // guardamos el carrito actualizado en localstorage
             localStorage.setItem('cart', JSON.stringify(cart));
         
-            // Notificar al usuario que el producto se agregó al carrito
-            alert('¡El producto se ha añadido al carrito!');
+            // Muestra el off-canvas con el mensaje
+            const offCanvas = document.getElementById('offCanvas');
+            const offCanvasMessage = document.getElementById('offCanvasMessage');
+            offCanvasMessage.textContent = '¡El producto se ha añadido al carrito!';
+            offCanvas.classList.add('show');
+
+            // Oculta el off-canvas después de un tiempo
+            setTimeout(function() {
+                offCanvas.classList.remove('show');
+            }, 1500); 
         });
+        
         
     
         function showThumbnail(src, title) {

@@ -28,7 +28,6 @@ nav {
 }
 #contDispositivos{
     width: 600px;
-    
 }
 
 .video {
@@ -316,16 +315,16 @@ nav {
     padding: 3px;
     margin: 2px;
     float: left;
-    
-  }
-  #thumbs img {
+
+}
+
+#thumbs img {
     width: 100px;
     padding: 3px;
     margin: 2px;
     float: left;
-    
-  }
 
+}
 
 #thumbs a:hover {
     border-color: #FF9900;
@@ -353,8 +352,31 @@ nav {
   .color-circle:hover {
     border-color: #ccc;
   }
-
-
+  .off-canvas {
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(54, 206, 117, 0.1);
+    z-index: 1000;
+    transition: left 0.5s ease; 
+  }
+  
+  .off-canvas-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+  }
+  #offCanvasMessage{
+    text-shadow: 3px 3px #000000;
+  }
+  .show {
+    left: 0; /* Muestra el off-canvas */
+  }
+  
 
 .form-control:hover, .form-select:hover{
     border-color: #20883f; 
@@ -379,10 +401,11 @@ nav {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='green'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
 
 }
+
 /* Media queries */
 @media (width <=1200px) {
     .card {
-        height: 100%; /* Establecer una altura fija para las cartas */
+        height: 100%; 
         width: 11rem;
     }
     .carousel-item .row {
@@ -444,7 +467,7 @@ nav {
 
 
 @media (max-width: 650px) {
-    /* Definir el estilo para el carrusel cuando el tamaño de la pantalla es pequeño o extra pequeño */
+
     .carousel-item .row {
         display: block;
     }
