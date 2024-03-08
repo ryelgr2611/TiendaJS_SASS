@@ -2,34 +2,6 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: rgb(243, 243, 243);
 }
-
-nav {
-    background-color: rgb(243, 243, 243);
-}
-@media (min-width: 992px) {
-    .navbar.sticky-lg-top {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      z-index: 1020;
-    }
-  }
-
-.navbar-nav .nav-link {
-    color: black; 
-    font-weight: bold;
-}
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-.text-croco{
-    color: #36ce75 !important;
-}
-#contDispositivos{
-    width: 600px;
-}
-
 .video {
     position: relative;
     width: 100%;
@@ -420,12 +392,6 @@ nav {
     }
 }
 
-@media(max-width: 991px){
-    .navbar-nav .nav-link {
-        font-size: 20px;
-    }
-}
-
 @media (max-width: 800px) {
     .match {
         grid-template-areas: 
@@ -465,7 +431,6 @@ nav {
     }
 }
 
-
 @media (max-width: 650px) {
 
     .carousel-item .row {
@@ -477,22 +442,12 @@ nav {
     .grid-container{
         grid-template-columns: repeat(1, 1fr);
     }
-    #contDispositivos{
-        width: 500px;
-        
-    }
     .futuro{
         background-position: 1300px;
     }
 }
 @media (max-width: 550px) {
 
-    #contDispositivos{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        
-    }
     .futuro{
         background-position: 1150px;
     }

@@ -1,4 +1,8 @@
 /* Estilos cesta */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: rgb(243, 243, 243);
+}
 #botonPedido {
     background-color: #09782a;
     border: #CCCCCC;
