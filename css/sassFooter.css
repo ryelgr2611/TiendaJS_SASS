@@ -38,7 +38,7 @@
 .footer .social-icon-link:hover {
   transform: translateY(-5px);
 }
-.footer .menu-link {
+.footer .menu-link, .footer p {
   font-size: 1.2rem;
   color: #fff;
   display: inline-block;
@@ -47,14 +47,8 @@
   opacity: 0.75;
   text-shadow: 2px 2px #000000;
 }
-.footer .menu-link:hover {
+.footer .menu-link:hover, .footer p:hover {
   opacity: 1;
-}
-.footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1.2rem;
-  font-weight: 300;
 }
 .footer .footer-columns {
   display: flex;

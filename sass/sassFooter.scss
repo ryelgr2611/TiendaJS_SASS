@@ -46,7 +46,7 @@
     }
   }
   
-  .menu-link {
+  .menu-link,p {
     font-size: 1.2rem;
     color: #fff;
     display: inline-block;
@@ -60,13 +60,6 @@
     }
   }
 
-  p {
-    color: #fff;
-    margin: 15px 0 10px 0;
-    font-size: 1.2rem;
-    font-weight: 300;
-    
-  }
 
   .footer-columns {
     display: flex;
